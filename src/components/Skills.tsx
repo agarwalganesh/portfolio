@@ -7,6 +7,7 @@ const currentSkills = [
   { name: "JavaScript", level: 85 },
   { name: "React.js", level: 80 },
   { name: "Python", level: 75 },
+  { name: "Machine Learning", level: 70 },
   { name: "SQL", level: 80 },
   { name: "Power BI", level: 85 },
   { name: "Excel", level: 90 },

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Twitter, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Instagram, Twitter, Mail, ArrowDown, Facebook } from "lucide-react";
 import ganeshProfile from "@/assets/ganesh-profile.jpg";
 
 const socialLinks = [
@@ -7,6 +7,7 @@ const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal-a20917308", label: "LinkedIn" },
   { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
   { icon: Twitter, href: "https://twitter.com/", label: "Twitter" },
+  { icon: Facebook, href: "https://facebook.com/", label: "Facebook" },
   { icon: Mail, href: "mailto:contact@example.com", label: "Email" },
 ];
 

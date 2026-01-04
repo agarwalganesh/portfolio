@@ -15,7 +15,7 @@ const contactInfo = [
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Ganesh-Agarwal", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/ganesh-agarwal", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal-a20917308", label: "LinkedIn" },
   { icon: Twitter, href: "https://twitter.com/", label: "Twitter" },
   { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
 ];

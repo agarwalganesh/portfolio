@@ -4,7 +4,7 @@ import ganeshProfile from "@/assets/ganesh-profile.jpg";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Ganesh-Agarwal", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal/", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal-a20917308", label: "LinkedIn" },
   { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
   { icon: Twitter, href: "https://twitter.com/", label: "Twitter" },
   { icon: Mail, href: "mailto:contact@example.com", label: "Email" },

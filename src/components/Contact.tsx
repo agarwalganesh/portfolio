@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,6 +18,7 @@ const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal-a20917308", label: "LinkedIn" },
   { icon: Twitter, href: "https://twitter.com/", label: "Twitter" },
   { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
+  { icon: Facebook, href: "https://facebook.com/", label: "Facebook" },
 ];
 
 const Contact = () => {

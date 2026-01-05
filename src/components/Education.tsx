@@ -20,7 +20,8 @@ const educationData = [
     location: "Neemkathana, Rajasthan",
     stream: "Mathematics",
     duration: "2022 - 2025",
-    score: "Ongoing",
+    score: "59%",
+    completed: true,
   },
   {
     icon: Code,

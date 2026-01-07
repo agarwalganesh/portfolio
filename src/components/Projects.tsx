@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Sun, BarChart3, Bot, ExternalLink, Github } from "lucide-react";
+import { useRef, useState } from "react";
+import { Sun, BarChart3, Bot, ExternalLink, Github, ChevronRight } from "lucide-react";
 
 const projectsData = [
   {
@@ -42,6 +42,7 @@ const projectsData = [
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section id="projects" className="py-24 relative" ref={ref}>
@@ -55,6 +56,14 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5 }}
+            className="inline-block px-4 py-1 rounded-full glass text-sm text-primary mb-4"
+          >
+            My Work
+          </motion.span>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
@@ -70,24 +79,58 @@ const Projects = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
               <motion.div
-                className="glass rounded-2xl overflow-hidden h-full group cursor-pointer"
-                whileHover={{ y: -8 }}
+                className="glass rounded-2xl overflow-hidden h-full group cursor-pointer relative"
+                whileHover={{ y: -10 }}
                 transition={{ duration: 0.3 }}
               >
+                {/* Animated border on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                  style={{
+                    background: `linear-gradient(135deg, ${project.color.includes('yellow') ? 'hsl(45, 100%, 50%)' : project.color.includes('green') ? 'hsl(150, 100%, 40%)' : 'hsl(200, 100%, 50%)'}, transparent)`,
+                    padding: '2px',
+                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskComposite: 'xor',
+                    maskComposite: 'exclude',
+                  }}
+                />
+
                 {/* Project Header */}
                 <div className={`h-32 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/20" />
+                  
+                  {/* Animated background pattern */}
+                  <motion.div
+                    className="absolute inset-0 opacity-30"
+                    style={{
+                      backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+                      backgroundSize: '20px 20px',
+                    }}
+                    animate={{ 
+                      backgroundPosition: hoveredIndex === index ? ['0% 0%', '100% 100%'] : '0% 0%' 
+                    }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  />
+                  
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
-                    whileHover={{ scale: 1.1 }}
+                    animate={hoveredIndex === index ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.3 }}
                   >
                     <project.icon className="w-16 h-16 text-white/80" />
                   </motion.div>
 
                   {/* Hover Actions */}
-                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <motion.div 
+                    className="absolute top-4 right-4 flex gap-2"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={hoveredIndex === index ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <motion.a
                       href={project.link}
                       className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
@@ -104,12 +147,12 @@ const Projects = () => {
                     >
                       <Github size={16} />
                     </motion.a>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-display font-bold mb-1">
+                  <h3 className="text-xl font-display font-bold mb-1 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-sm text-primary mb-3">{project.subtitle}</p>
@@ -119,13 +162,16 @@ const Projects = () => {
 
                   {/* Features */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.features.map((feature) => (
-                      <span
+                    {project.features.map((feature, i) => (
+                      <motion.span
                         key={feature}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ delay: 0.5 + index * 0.1 + i * 0.05 }}
                         className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
                       >
                         {feature}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
 
@@ -141,6 +187,14 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
+
+                  {/* View Project Link */}
+                  <motion.div
+                    className="flex items-center gap-1 mt-4 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity"
+                    animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
+                  >
+                    View Project <ChevronRight size={16} />
+                  </motion.div>
                 </div>
               </motion.div>
             </motion.div>

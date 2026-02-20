@@ -3,6 +3,8 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Award, ExternalLink, Download, Calendar, Building } from "lucide-react";
 import cheggCert from "@/assets/chegg-prompt-eng-cert.jpg";
+import bscResultCert from "@/assets/bsc-result-cert.jpg";
+import iitMadrasCert from "@/assets/iit-madras-cert.jpg";
 
 const certificatesData = [
   {
@@ -14,6 +16,26 @@ const certificatesData = [
     pdfUrl: "/certificates/chegg_prompt_eng.pdf",
     color: "from-orange-500/20 to-yellow-500/20",
     borderColor: "hover:border-orange-500/50",
+  },
+  {
+    title: "B.Sc. Part-III Result (Mathematics, Physics, Chemistry)",
+    issuer: "PDU Shekhawati University, Sikar",
+    partner: "",
+    dates: "2024 – 2025",
+    image: bscResultCert,
+    pdfUrl: "/certificates/3rd_year_result.pdf",
+    color: "from-blue-500/20 to-cyan-500/20",
+    borderColor: "hover:border-blue-500/50",
+  },
+  {
+    title: "Foundation Level Certificate",
+    issuer: "IIT Madras",
+    partner: "BS Degree Programme",
+    dates: "Completed Sep 2025",
+    image: iitMadrasCert,
+    pdfUrl: "/certificates/iit_madras_foundation.pdf",
+    color: "from-emerald-500/20 to-teal-500/20",
+    borderColor: "hover:border-emerald-500/50",
   },
 ];
 

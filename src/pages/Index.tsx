@@ -6,6 +6,7 @@ import Education from "@/components/Education";
 import Projects from "@/components/Projects";
 import Achievements from "@/components/Achievements";
 import Skills from "@/components/Skills";
+import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -38,6 +39,7 @@ const Index = () => {
         <Projects />
         <Achievements />
         <Skills />
+        <Certifications />
         <Contact />
         <Footer />
       </motion.div>

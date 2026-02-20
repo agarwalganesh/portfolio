@@ -5,6 +5,7 @@ import { Award, ExternalLink, Download, Calendar, Building } from "lucide-react"
 import cheggCert from "@/assets/chegg-prompt-eng-cert.jpg";
 import bscResultCert from "@/assets/bsc-result-cert.jpg";
 import iitMadrasCert from "@/assets/iit-madras-cert.jpg";
+import ibmMlCert from "@/assets/ibm-ml-cert.jpg";
 
 const certificatesData = [
   {
@@ -36,6 +37,16 @@ const certificatesData = [
     pdfUrl: "/certificates/iit_madras_foundation.pdf",
     color: "from-emerald-500/20 to-teal-500/20",
     borderColor: "hover:border-emerald-500/50",
+  },
+  {
+    title: "A Quick Introduction to Machine Learning",
+    issuer: "IBM Skills Network",
+    partner: "Cognitive Class",
+    dates: "August 2025",
+    image: ibmMlCert,
+    pdfUrl: "/certificates/ibm_ml_intro.pdf",
+    color: "from-indigo-500/20 to-purple-500/20",
+    borderColor: "hover:border-indigo-500/50",
   },
 ];
 

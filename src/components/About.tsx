@@ -5,9 +5,9 @@ import { MapPin, Calendar, Target, Users } from "lucide-react";
 import ganeshProfile from "@/assets/ganesh-profile.jpg";
 
 const highlights = [
-  { icon: MapPin, label: "Location", value: "Sikar, Rajasthan" },
+  { icon: MapPin, label: "Location", value: "Bangalore, Karnataka" },
   { icon: Calendar, label: "Born", value: "September 8, 2005" },
-  { icon: Target, label: "Goal", value: "Data-Driven Developer" },
+  { icon: Target, label: "Goal", value: "ML Engineer & Analyst" },
   { icon: Users, label: "Status", value: "IIT Madras Student" },
 ];
 

@@ -8,13 +8,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "ganeshagarwal@example.com", href: "mailto:ganeshagarwal@example.com" },
-  { icon: MapPin, label: "Location", value: "Sikar, Rajasthan, India", href: "#" },
-  { icon: Phone, label: "Phone", value: "+91 XXXXX XXXXX", href: "tel:+91XXXXXXXXXX" },
+  { icon: Mail, label: "Email", value: "ganeshagarwal0895@gmail.com", href: "mailto:ganeshagarwal0895@gmail.com" },
+  { icon: MapPin, label: "Location", value: "Bangalore, Karnataka, India", href: "#" },
+  { icon: Phone, label: "Phone", value: "+91 63754 76136", href: "tel:+916375476136" },
 ];
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/Ganesh-Agarwal", label: "GitHub" },
+  { icon: Github, href: "https://github.com/agarwalganesh", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal-a20917308", label: "LinkedIn" },
   { icon: Twitter, href: "https://twitter.com/", label: "Twitter" },
   { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },

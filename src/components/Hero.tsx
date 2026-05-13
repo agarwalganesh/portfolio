@@ -4,19 +4,19 @@ import ganeshProfile from "@/assets/ganesh-profile.jpg";
 import { useState, useEffect } from "react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/Ganesh-Agarwal", label: "GitHub" },
+  { icon: Github, href: "https://github.com/agarwalganesh", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal-a20917308", label: "LinkedIn" },
   { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
   { icon: Twitter, href: "https://twitter.com/", label: "Twitter" },
   { icon: Facebook, href: "https://facebook.com/", label: "Facebook" },
-  { icon: Mail, href: "mailto:contact@example.com", label: "Email" },
+  { icon: Mail, href: "mailto:ganeshagarwal0895@gmail.com", label: "Email" },
 ];
 
 const roles = [
+  "Machine Learning Engineer",
+  "Data Analyst",
   "Data Science Student",
-  "Full-Stack Developer",
   "Problem Solver",
-  "Tech Enthusiast",
 ];
 
 const Hero = () => {

@@ -4,24 +4,23 @@ import { useRef } from "react";
 import CountUpNumber from "./CountUpNumber";
 
 const currentSkills = [
-  { name: "HTML & CSS", level: 90 },
-  { name: "JavaScript", level: 85 },
-  { name: "React.js", level: 80 },
-  { name: "Python", level: 75 },
-  { name: "Machine Learning", level: 70 },
-  { name: "SQL", level: 80 },
-  { name: "Power BI", level: 85 },
-  { name: "Excel", level: 90 },
-  { name: "Bootstrap", level: 85 },
+  { name: "Python (Pandas, NumPy, Scikit-learn)", level: 90 },
+  { name: "Machine Learning (XGBoost, RF)", level: 85 },
+  { name: "SQL (MySQL)", level: 85 },
+  { name: "EDA & Feature Engineering", level: 88 },
+  { name: "Anomaly Detection (IsoForest, LOF)", level: 80 },
+  { name: "C++ / C", level: 75 },
+  { name: "Git / GitHub", level: 85 },
+  { name: "Node.js & Supabase", level: 75 },
 ];
 
 const learningSkills = [
-  { name: "Machine Learning", icon: "🤖" },
-  { name: "Data Science", icon: "📊" },
-  { name: "Java & OOPs", icon: "☕" },
+  { name: "Deep Learning", icon: "🤖" },
+  { name: "MLOps", icon: "⚙️" },
   { name: "AWS Cloud", icon: "☁️" },
   { name: "DSA", icon: "🧮" },
-  { name: "AI & Prompt Engineering", icon: "🧠" },
+  { name: "Power BI", icon: "📊" },
+  { name: "Prompt Engineering", icon: "🧠" },
 ];
 
 const Skills = () => {
@@ -166,7 +165,7 @@ const Skills = () => {
                 </div>
                 <div>
                   <p className="text-2xl font-display font-bold text-gradient">
-                    <CountUpNumber value={3} suffix="+" />
+                    <CountUpNumber value={6} suffix="+" />
                   </p>
                   <p className="text-xs text-muted-foreground">Projects Built</p>
                 </div>

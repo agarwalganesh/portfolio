@@ -1,9 +1,42 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Sun, BarChart3, Bot, ExternalLink, Github, ChevronRight } from "lucide-react";
+import { Sun, BarChart3, Bot, ExternalLink, Github, ChevronRight, ShieldAlert, Brain, GraduationCap } from "lucide-react";
 
 const projectsData = [
+  {
+    icon: ShieldAlert,
+    title: "Credit Risk & Fraud Detection",
+    subtitle: "ML Risk Scoring & Anomaly Detection",
+    description:
+      "Risk evaluation system on a 1,000 x 9 financial dataset segmenting applicants into risk categories, with Isolation Forest & LOF flagging ~20% anomalous transactions.",
+    features: ["AUC-ROC 0.85", "78–81% Accuracy", "12+ Features", "5-Fold CV"],
+    tech: ["Python", "XGBoost", "Random Forest"],
+    color: "from-red-500 to-rose-500",
+    link: "https://github.com/agarwalganesh",
+  },
+  {
+    icon: Brain,
+    title: "Student Mental Health & Overthinking",
+    subtitle: "EDA + Classification Pipeline",
+    description:
+      "Analyzed a 101 x 8 student dataset with an 8-visualization EDA pipeline and built a Random Forest classifier categorizing overthinking levels from High to None.",
+    features: ["EDA Pipeline", "Random Forest", "Confusion Matrix", "Behavior Insights"],
+    tech: ["Python", "Scikit-learn", "Pandas"],
+    color: "from-purple-500 to-pink-500",
+    link: "https://github.com/agarwalganesh",
+  },
+  {
+    icon: GraduationCap,
+    title: "JEE Mains Rank Predictor",
+    subtitle: "PW IOI Lead Generation Tool",
+    description:
+      "High-accuracy predictive tool estimating student ranks from JEE Mains performance, generating data-driven admission leads for the PW IOI Innovation Hub.",
+    features: ["Real-time Predictions", "High Availability", "Lead Generation", "Live Demo"],
+    tech: ["Node.js", "Supabase", "Vercel"],
+    color: "from-indigo-500 to-blue-500",
+    link: "https://www.jeemains-rank-predicator-pwioi.live/",
+  },
   {
     icon: Sun,
     title: "Sunstide",

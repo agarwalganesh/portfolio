@@ -16,13 +16,13 @@ const Footer = () => {
             © {currentYear} Ganesh Agarwal. All rights reserved.
           </motion.p>
 
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-muted-foreground text-sm flex items-center gap-1"
           >
             Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> using React & Tailwind
-          </motion.p>
+          </motion.p> */}
         </div>
       </div>
     </footer>

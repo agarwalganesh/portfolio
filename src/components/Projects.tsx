@@ -73,8 +73,8 @@ const projectsData = [
     features: ["NLP Commands", "Auto Deploy", "AI Code Gen", "Multiple Templates"],
     tech: ["Python", "OpenAI API", "CLI"],
     color: "from-blue-500 to-cyan-500",
-    link: "#",
-    github: "https://github.com/agarwalganesh",
+    link: "https://github.com/agarwalganesh/LearnSync-Website-maker",
+    github: "https://github.com/agarwalganesh/LearnSync-Website-maker",
   },
 ];
 

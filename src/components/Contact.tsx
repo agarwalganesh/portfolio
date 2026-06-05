@@ -30,10 +30,23 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
     
-    toast.success("Message sent successfully! I'll get back to you soon.");
+    const text = `Hello Ganesh! I would like to connect with you.\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Message:* ${message}`;
+    const phone = "916375476136";
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    
+    // Simulate form submission animation
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    // Redirect to WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank");
+    
+    toast.success("Opening WhatsApp to send your message!");
     setIsSubmitting(false);
     (e.target as HTMLFormElement).reset();
   };
@@ -54,7 +67,7 @@ const Contact = () => {
             Have a project in mind or just want to say hi? I'd love to hear from you!
           </p>
         </motion.div>
-
+ 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact Info */}
           <motion.div
@@ -69,7 +82,7 @@ const Contact = () => {
               I'm always open to discussing new projects, creative ideas, or 
               opportunities to be part of your vision.
             </p>
-
+ 
             <div className="space-y-4 mb-8">
               {contactInfo.map((info, index) => (
                 <motion.a
@@ -90,7 +103,7 @@ const Contact = () => {
                 </motion.a>
               ))}
             </div>
-
+ 
             {/* Social Links */}
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
@@ -110,7 +123,7 @@ const Contact = () => {
               ))}
             </div>
           </motion.div>
-
+ 
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -124,6 +137,7 @@ const Contact = () => {
                     Your Name
                   </label>
                   <Input
+                    name="name"
                     type="text"
                     placeholder="John Doe"
                     required
@@ -135,6 +149,7 @@ const Contact = () => {
                     Your Email
                   </label>
                   <Input
+                    name="email"
                     type="email"
                     placeholder="john@example.com"
                     required
@@ -142,24 +157,26 @@ const Contact = () => {
                   />
                 </div>
               </div>
-
+ 
               <div className="mb-4">
                 <label className="text-sm text-muted-foreground mb-2 block">
                   Subject
                 </label>
                 <Input
+                  name="subject"
                   type="text"
                   placeholder="Project Inquiry"
                   required
                   className="bg-secondary/50 border-border focus:border-primary"
                 />
               </div>
-
+ 
               <div className="mb-6">
                 <label className="text-sm text-muted-foreground mb-2 block">
                   Message
                 </label>
                 <Textarea
+                  name="message"
                   placeholder="Tell me about your project..."
                   rows={5}
                   required

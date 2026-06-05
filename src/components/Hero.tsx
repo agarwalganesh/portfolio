@@ -13,10 +13,10 @@ const socialLinks = [
 ];
 
 const roles = [
+  "GenAI & LLM Engineer",
+  "AI Automation Developer",
   "Machine Learning Engineer",
-  "Data Analyst",
   "Data Science Student",
-  "Problem Solver",
 ];
 
 const Hero = () => {
@@ -88,7 +88,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mb-6 h-10"
+              className="mb-4 h-10"
             >
               <span className="text-xl md:text-2xl text-muted-foreground">
                 I'm a{" "}
@@ -103,6 +103,15 @@ const Hero = () => {
                 {roles[roleIndex]}
               </motion.span>
             </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+              className="text-sm md:text-base font-semibold text-primary/90 tracking-wide mb-6 uppercase"
+            >
+              GenAI & LLM Engineer | AI Automation Developer | Building AI Agents, RAG Systems & Intelligent Workflows
+            </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}

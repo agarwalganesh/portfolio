@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Projects from "@/components/Projects";
 import Achievements from "@/components/Achievements";
@@ -35,6 +36,7 @@ const Index = () => {
         <Navbar />
         <Hero />
         <About />
+        <Experience />
         <Education />
         <Projects />
         <Achievements />

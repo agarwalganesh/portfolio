@@ -13,7 +13,8 @@ const projectsData = [
     features: ["AUC-ROC 0.85", "78–81% Accuracy", "12+ Features", "5-Fold CV"],
     tech: ["Python", "XGBoost", "Random Forest"],
     color: "from-red-500 to-rose-500",
-    link: "https://github.com/agarwalganesh",
+    link: "https://github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
+    github: "https://github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
   },
   {
     icon: Brain,
@@ -24,7 +25,8 @@ const projectsData = [
     features: ["EDA Pipeline", "Random Forest", "Confusion Matrix", "Behavior Insights"],
     tech: ["Python", "Scikit-learn", "Pandas"],
     color: "from-purple-500 to-pink-500",
-    link: "https://github.com/agarwalganesh",
+    link: "https://github.com/agarwalganesh/StudentOverthinkingEDA-project",
+    github: "https://github.com/agarwalganesh/StudentOverthinkingEDA-project",
   },
   {
     icon: GraduationCap,
@@ -36,6 +38,7 @@ const projectsData = [
     tech: ["Node.js", "Supabase", "Vercel"],
     color: "from-indigo-500 to-blue-500",
     link: "https://www.jeemains-rank-predicator-pwioi.live/",
+    github: "https://github.com/agarwalganesh",
   },
   {
     icon: Sun,
@@ -47,6 +50,7 @@ const projectsData = [
     tech: ["React", "Tailwind CSS", "Framer Motion"],
     color: "from-yellow-500 to-orange-500",
     link: "#",
+    github: "https://github.com/agarwalganesh",
   },
   {
     icon: BarChart3,
@@ -58,6 +62,7 @@ const projectsData = [
     tech: ["MongoDB", "Express.js", "React", "Node.js"],
     color: "from-green-500 to-emerald-500",
     link: "#",
+    github: "https://github.com/agarwalganesh",
   },
   {
     icon: Bot,
@@ -69,6 +74,7 @@ const projectsData = [
     tech: ["Python", "OpenAI API", "CLI"],
     color: "from-blue-500 to-cyan-500",
     link: "#",
+    github: "https://github.com/agarwalganesh",
   },
 ];
 
@@ -166,6 +172,8 @@ const Projects = () => {
                   >
                     <motion.a
                       href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -173,7 +181,9 @@ const Projects = () => {
                       <ExternalLink size={16} />
                     </motion.a>
                     <motion.a
-                      href="#"
+                      href={project.github || project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -222,12 +232,15 @@ const Projects = () => {
                   </div>
 
                   {/* View Project Link */}
-                  <motion.div
-                    className="flex items-center gap-1 mt-4 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity"
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 mt-4 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity w-fit"
                     animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
                   >
                     View Project <ChevronRight size={16} />
-                  </motion.div>
+                  </motion.a>
                 </div>
               </motion.div>
             </motion.div>

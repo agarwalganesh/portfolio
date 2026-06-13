@@ -23,7 +23,6 @@ This website is a premium, interactive, and fully responsive single-page applica
 - **Animations**: [Framer Motion](https://www.framer.com/motion/) for micro-interactions and page entrance animations
 - **Icons**: [Lucide React](https://lucide.dev/) for crisp, modern icons
 - **UI Components**: Built using [shadcn/ui](https://ui.shadcn.com/) components on top of Radix primitives
-- **Database/Backend Integration**: [Supabase](https://supabase.com/)
 
 ---
 

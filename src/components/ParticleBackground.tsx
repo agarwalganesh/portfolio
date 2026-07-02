@@ -1,9 +1,19 @@
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 
 const ParticleBackground = () => {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const particles = useMemo(() => {
-    return Array.from({ length: 50 }, (_, i) => ({
+    return Array.from({ length: reducedMotion ? 0 : 50 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -11,7 +21,11 @@ const ParticleBackground = () => {
       duration: Math.random() * 20 + 10,
       delay: Math.random() * 5,
     }));
-  }, []);
+  }, [reducedMotion]);
+
+  if (reducedMotion) {
+    return <div className="fixed inset-0 pointer-events-none z-0" />;
+  }
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -39,7 +53,7 @@ const ParticleBackground = () => {
           }}
         />
       ))}
-      
+
       {/* Gradient orbs */}
       <motion.div
         className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]"

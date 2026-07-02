@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -8,11 +9,28 @@ import Projects from "@/components/Projects";
 import Achievements from "@/components/Achievements";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
+import GitHubActivity from "@/components/GitHubActivity";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ParticleBackground from "@/components/ParticleBackground";
+import CLITerminal from "@/components/CLITerminal";
+import AIChatbot from "@/components/AIChatbot";
 
 const Index = () => {
+  const [isCliOpen, setIsCliOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Toggle CLI mode on Ctrl + ` (backtick) or Ctrl + \
+      if ((e.ctrlKey && e.key === "`") || (e.ctrlKey && e.key === "\\")) {
+        e.preventDefault();
+        setIsCliOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
       <ParticleBackground />
@@ -33,7 +51,7 @@ const Index = () => {
         transition={{ duration: 0.5 }}
         className="relative z-10"
       >
-        <Navbar />
+        <Navbar onToggleCli={() => setIsCliOpen((prev) => !prev)} />
         <Hero />
         <About />
         <Experience />
@@ -42,9 +60,14 @@ const Index = () => {
         <Achievements />
         <Skills />
         <Certifications />
+        <GitHubActivity />
         <Contact />
         <Footer />
       </motion.div>
+
+      {/* Global Overlays */}
+      <CLITerminal isOpen={isCliOpen} onClose={() => setIsCliOpen(false)} />
+      <AIChatbot />
     </div>
   );
 };

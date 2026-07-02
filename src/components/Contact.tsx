@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,9 +16,6 @@ const contactInfo = [
 const socialLinks = [
   { icon: Github, href: "https://github.com/agarwalganesh", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal-a20917308", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com/", label: "Twitter" },
-  { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
-  { icon: Facebook, href: "https://facebook.com/", label: "Facebook" },
 ];
 
 const Contact = () => {
@@ -37,7 +34,7 @@ const Contact = () => {
     const message = formData.get("message") as string;
     
     const text = `Hello Ganesh! I would like to connect with you.\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Message:* ${message}`;
-    const phone = "916375476136";
+    const phone = import.meta.env.VITE_WHATSAPP_PHONE || "916375476136";
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
     
     // Simulate form submission animation
@@ -193,11 +190,20 @@ const Contact = () => {
                   "Sending..."
                 ) : (
                   <>
-                    Send Message
+                    Send via WhatsApp
                     <Send className="ml-2 w-4 h-4" />
                   </>
                 )}
               </Button>
+              <p className="text-center text-sm text-muted-foreground mt-4">
+                Or email directly:{" "}
+                <a
+                  href="mailto:ganeshagarwal0895@gmail.com"
+                  className="text-primary hover:underline"
+                >
+                  ganeshagarwal0895@gmail.com
+                </a>
+              </p>
             </form>
           </motion.div>
         </div>

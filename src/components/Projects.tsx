@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Sun, BarChart3, Bot, ExternalLink, Github, ChevronRight, ShieldAlert, Brain, GraduationCap } from "lucide-react";
+import { CreditRiskDemo, MentalHealthDemo } from "./ProjectDemos";
 
 const projectsData = [
   {
@@ -82,6 +83,7 @@ const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeDemoIndex, setActiveDemoIndex] = useState<number | null>(null);
 
   return (
     <section id="projects" className="py-24 relative" ref={ref}>
@@ -164,32 +166,36 @@ const Projects = () => {
                   </motion.div>
 
                   {/* Hover Actions */}
-                  <motion.div 
+                  <motion.div
                     className="absolute top-4 right-4 flex gap-2"
                     initial={{ opacity: 0, y: -10 }}
                     animate={hoveredIndex === index ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <motion.a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <ExternalLink size={16} />
-                    </motion.a>
-                    <motion.a
-                      href={project.github || project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Github size={16} />
-                    </motion.a>
+                    {project.link && project.link !== "#" && (
+                      <motion.a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <ExternalLink size={16} />
+                      </motion.a>
+                    )}
+                    {project.github && !project.github.match(/^https:\/\/github\.com\/[^/]+$/) && (
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Github size={16} />
+                      </motion.a>
+                    )}
                   </motion.div>
                 </div>
 
@@ -231,16 +237,43 @@ const Projects = () => {
                     ))}
                   </div>
 
+                  {/* Try Live Demo Selector */}
+                  {(project.title.includes("Credit Risk") || project.title.includes("Mental Health")) && (
+                    <div className="mt-4 pt-3 border-t border-border">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveDemoIndex(activeDemoIndex === index ? null : index);
+                        }}
+                        className="text-xs font-semibold text-primary flex items-center gap-1.5 bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-full transition-all"
+                      >
+                        {activeDemoIndex === index ? "Close Live Demo" : "Try Live Demo"}
+                      </button>
+                      
+                      {activeDemoIndex === index && (
+                        <motion.div 
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          className="mt-3 overflow-hidden text-left"
+                        >
+                          {project.title.includes("Credit Risk") ? <CreditRiskDemo /> : <MentalHealthDemo />}
+                        </motion.div>
+                      )}
+                    </div>
+                  )}
+
                   {/* View Project Link */}
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 mt-4 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity w-fit"
-                    animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
-                  >
-                    View Project <ChevronRight size={16} />
-                  </motion.a>
+                  {project.link && project.link !== "#" && (
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 mt-4 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity w-fit"
+                      animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
+                    >
+                      View Project <ChevronRight size={16} />
+                    </motion.a>
+                  )}
                 </div>
               </motion.div>
             </motion.div>

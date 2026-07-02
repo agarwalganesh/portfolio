@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon, Terminal } from "lucide-react";
+import { useTheme } from "next-themes";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -14,9 +16,14 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-const Navbar = () => {
+interface NavbarProps {
+  onToggleCli: () => void;
+}
+
+const Navbar = ({ onToggleCli }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,11 +49,11 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <motion.a
           href="#home"
-          className="text-2xl font-display font-bold text-gradient"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          className="flex items-center"
         >
-          GA.
+          <Logo size={36} />
         </motion.a>
 
         {/* Desktop Navigation */}
@@ -64,13 +71,38 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden text-foreground p-2"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-3">
+          {/* CLI Terminal Toggle */}
+          <motion.button
+            onClick={onToggleCli}
+            className="w-9 h-9 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle terminal"
+            title="Terminal Mode (Ctrl + `)"
+          >
+            <Terminal size={16} />
+          </motion.button>
+
+          {/* Theme Toggle */}
+          <motion.button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="w-9 h-9 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </motion.button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden text-foreground p-2"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Twitter, Mail, ArrowDown, Facebook, Sparkles } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, Sparkles, Download } from "lucide-react";
 import ganeshProfile from "@/assets/ganesh-profile.jpg";
 import { useState, useEffect } from "react";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/agarwalganesh", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/ganesh-agarwal-a20917308", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
-  { icon: Twitter, href: "https://twitter.com/", label: "Twitter" },
-  { icon: Facebook, href: "https://facebook.com/", label: "Facebook" },
   { icon: Mail, href: "mailto:ganeshagarwal0895@gmail.com", label: "Email" },
 ];
 
@@ -174,8 +171,10 @@ const Hero = () => {
                 <span className="relative z-10">Hire Me</span>
               </motion.a>
               <motion.a
-                href="#contact"
-                className="px-8 py-3 glass text-foreground font-semibold rounded-lg hover:bg-secondary transition-colors relative overflow-hidden group"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-8 py-3 glass text-foreground font-semibold rounded-lg hover:bg-secondary transition-colors relative overflow-hidden group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -184,7 +183,8 @@ const Hero = () => {
                   animate={{ opacity: [0.5, 1, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-                <span className="relative z-10">Contact Me</span>
+                <Download size={16} className="relative z-10" />
+                <span className="relative z-10">Download CV</span>
               </motion.a>
             </motion.div>
           </motion.div>

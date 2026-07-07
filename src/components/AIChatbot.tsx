@@ -55,6 +55,17 @@ const BOT_KNOWLEDGE: { keywords: string[]; response: string }[] = [
   },
 ];
 
+const renderMessageText = (text: string) =>
+  text.split(/(\*[^*\n]+\*)/g).map((part, i) =>
+    part.startsWith("*") && part.endsWith("*") && part.length > 2 ? (
+      <strong key={i} className="font-semibold">
+        {part.slice(1, -1)}
+      </strong>
+    ) : (
+      part
+    )
+  );
+
 const getBotResponse = (input: string): string => {
   const query = input.toLowerCase();
   for (const entry of BOT_KNOWLEDGE) {
@@ -183,7 +194,7 @@ const AIChatbot = () => {
                         : "bg-muted text-foreground rounded-tl-none border border-primary/5"
                     }`}
                   >
-                    {msg.text}
+                    {renderMessageText(msg.text)}
                   </div>
                 </div>
               ))}

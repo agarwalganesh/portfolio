@@ -11,47 +11,129 @@ interface Message {
 
 const SUGGESTIONS = [
   "Tell me about your ML projects",
+  "What are your achievements?",
   "What is your tech stack?",
   "How can I contact you?",
-  "Where do you study?",
 ];
 
 const BOT_KNOWLEDGE: { keywords: string[]; response: string }[] = [
+  // ── Greetings ──────────────────────────────────────────────────────────────
   {
-    keywords: ["project", "projects", "work", "portfolio"],
-    response: "Ganesh has completed several high-impact machine learning and web projects, including:\n1. *Credit Risk & Fraud Detection* (XGBoost)\n2. *Student Mental Health EDA & Classification*\n3. *JEE Mains Rank Predictor* (leads tool for PW IOI)\n4. *Sunstide* (solar smart bag portal)\n5. *Excel Analytics Platform*\n\nWhich one would you like to hear more about?",
+    keywords: ["hello", "hi", "hey", "greetings", "yo", "sup", "howdy"],
+    response:
+      "Hello! 👋 I'm Ganesh's AI Assistant. Ask me anything about his projects, skills, experience, education, achievements, or certifications!",
   },
+
+  // ── About / Personal ───────────────────────────────────────────────────────
   {
-    keywords: ["credit", "risk", "fraud", "finance"],
-    response: "The *Credit Risk & Fraud Detection* project evaluates financial risk on a 1,000x9 dataset, segmenting applicants using XGBoost and Random Forest. It also utilizes Isolation Forest & Local Outlier Factor (LOF) to flag ~20% anomalous transactions, achieving an accuracy of 78-81% and an AUC-ROC of 0.85.",
+    keywords: ["about", "who", "ganesh", "yourself", "background", "profile", "bio"],
+    response:
+      "Ganesh Agarwal is a GenAI & LLM Engineer, Machine Learning Engineer, and AI Automation Developer.\n\n• 📍 Location: Bangalore, Karnataka, India\n• 🎂 Born: September 8, 2005 — from Neemkathana, Rajasthan\n• 🎯 Goal: ML Engineer & AI Analyst\n• 🏫 Student at IIT Madras (BS Data Science) & PW IOI\n• 📈 JEE Percentile: 92%\n\nHe journeyed from a small town in Rajasthan to top-tier tech institutes through dedication and continuous learning.",
   },
+
+  // ── Skills ─────────────────────────────────────────────────────────────────
   {
-    keywords: ["mental", "health", "overthinking", "student"],
-    response: "The *Student Mental Health & Overthinking* project uses an 8-visualization EDA pipeline on student behaviors, culminating in a Random Forest classifier that maps overthinking levels from 'High' to 'None' with high accuracy.",
+    keywords: ["skill", "skills", "tech", "languages", "stack", "code", "python", "react", "tools", "tooling"],
+    response:
+      "Ganesh's tech stack spans AI/ML and Modern Web:\n\n🔧 *Core Skills*\n• Python — Pandas, NumPy, Scikit-learn (90%)\n• Machine Learning — XGBoost, Random Forest (85%)\n• EDA & Feature Engineering (88%)\n• Anomaly Detection — IsoForest, LOF (80%)\n• SQL / MySQL (85%)\n• C++ / C (75%)\n• Git / GitHub (85%)\n• Node.js & Supabase (75%)\n\n🌱 *Currently Learning*\n• Deep Learning 🤖  |  MLOps ⚙️\n• AWS Cloud ☁️  |  DSA 🧮\n• Power BI 📊  |  Prompt Engineering 🧠\n\n🌐 *Web*: React, TypeScript, Tailwind CSS, Framer Motion\n🗄️ *Databases*: MongoDB, Supabase, MySQL",
   },
+
+  // ── Projects – overview ────────────────────────────────────────────────────
   {
-    keywords: ["jee", "rank", "predictor", "pw", "ioi"],
-    response: "The *JEE Mains Rank Predictor* is a live web tool built for PW IOI to generate student admission leads by predicting ranks from performance input. It runs on Node.js, Supabase, and Vercel for high availability.",
+    keywords: ["project", "projects", "work", "portfolio", "build", "built"],
+    response:
+      "Ganesh has built 6 featured projects across ML and Web:\n\n1. 🛡️ *Credit Risk & Fraud Detection* — XGBoost + Anomaly Detection\n2. 🧠 *Student Mental Health & Overthinking* — EDA + Random Forest\n3. 🎓 *JEE Mains Rank Predictor* — PW IOI lead generation tool\n4. ☀️ *Sunstide* — Solar charging smart bag showcase website\n5. 📊 *Excel Analytics Platform* — MERN stack data visualizer\n6. 🤖 *LearnSyncAI Terminal* — AI-powered website generator (CLI)\n\nAsk me about any specific project for more details!",
   },
+
+  // ── Project – Credit Risk ──────────────────────────────────────────────────
   {
-    keywords: ["skill", "skills", "tech", "languages", "stack", "code", "python", "react"],
-    response: "Ganesh's tech stack is centered around AI, ML, and Modern Web:\n• *Languages/Libraries*: Python (Pandas, NumPy, Scikit-learn), C/C++, SQL (MySQL)\n• *Web Engineering*: React, Node.js, Supabase, TypeScript, Tailwind CSS\n• *Currently Learning*: Deep Learning, MLOps, AWS Cloud, DSA, Power BI, Prompt Engineering.",
+    keywords: ["credit", "risk", "fraud", "finance", "loan", "xgboost", "anomaly"],
+    response:
+      "🛡️ *Credit Risk & Fraud Detection*\nSubtitle: ML Risk Scoring & Anomaly Detection\n\n• Dataset: 1,000 × 9 financial records\n• Algorithms: XGBoost, Random Forest, Isolation Forest, Local Outlier Factor (LOF)\n• Flagged ~20% anomalous transactions\n• *AUC-ROC: 0.85*  |  *Accuracy: 78–81%*\n• 12+ engineered features, 5-fold cross-validation\n• Tech: Python, XGBoost, Scikit-learn\n• GitHub: github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
   },
+
+  // ── Project – Mental Health ────────────────────────────────────────────────
   {
-    keywords: ["contact", "hire", "email", "phone", "reach", "location", "bangalore"],
-    response: "You can reach Ganesh through the following channels:\n• *Email*: ganeshagarwal0895@gmail.com\n• *Phone*: +91 63754 76136\n• *LinkedIn*: linkedin.com/in/ganesh-agarwal-a20917308\n• *GitHub*: github.com/agarwalganesh\n• *Location*: Bangalore, Karnataka, India.",
+    keywords: ["mental", "health", "overthinking", "student", "eda"],
+    response:
+      "🧠 *Student Mental Health & Overthinking*\nSubtitle: EDA + Classification Pipeline\n\n• Dataset: 101 × 8 student behavior records\n• 8-visualization EDA pipeline revealing behavioral patterns\n• Random Forest classifier mapping overthinking levels: High → None\n• Output: Confusion Matrix & Behavior Insights\n• Tech: Python, Scikit-learn, Pandas\n• GitHub: github.com/agarwalganesh/StudentOverthinkingEDA-project",
   },
+
+  // ── Project – JEE Predictor ────────────────────────────────────────────────
   {
-    keywords: ["study", "education", "iit", "madras", "university", "college", "degree"],
-    response: "Ganesh's academic credentials include:\n1. *BS in Data Science & Applications* - IIT Madras (2023 - Present)\n2. *PW IOI Innovation Hub* - School of Computer Science & AI (2023 - 2027)\n3. *B.Sc. Mathematics & Sciences* - PDU Shekhawati University, Sikar (2022 - 2025).",
+    keywords: ["jee", "rank", "predictor", "pw", "ioi", "physicswallah"],
+    response:
+      "🎓 *JEE Mains Rank Predictor*\nSubtitle: PW IOI Lead Generation Tool\n\n• High-accuracy predictive tool estimating student JEE ranks from performance inputs\n• Generates data-driven admission leads for PW IOI Innovation Hub\n• Features: Real-time predictions, High availability, Live demo\n• Tech: Node.js, Supabase, Vercel\n• Live: jeemains-rank-predicator-pwioi.live\n• GitHub: github.com/agarwalganesh",
   },
+
+  // ── Project – Sunstide ────────────────────────────────────────────────────
   {
-    keywords: ["experience", "intern", "internship", "zidio", "work"],
-    response: "Ganesh has completed two internships:\n• *GenAI & LLM Intern* (Aug 2025 - Present): Architecting conversational agents, workflow automation, and prompting structures.\n• *Software Development Intern* at Zidio Development, Bangalore (Jun 2024 - Dec 2024): Developed React interfaces, integrated REST APIs, and managed data flows.",
+    keywords: ["sunstide", "solar", "bag", "sun"],
+    response:
+      "☀️ *Sunstide*\nSubtitle: Solar Charging Smart Bag Website\n\n• Showcase website for an innovative solar-charging bag that generates energy through sunlight and motion\n• Features: Responsive design, Interactive demos, Mobile-first, Modern UI/UX\n• Tech: React, Tailwind CSS, Framer Motion\n• GitHub: github.com/agarwalganesh",
   },
+
+  // ── Project – Excel Analytics ─────────────────────────────────────────────
   {
-    keywords: ["hello", "hi", "hey", "greetings", "yo"],
-    response: "Hello! I am Ganesh's AI Assistant. Ask me anything about his projects, technical skills, education, or how to contact him!",
+    keywords: ["excel", "analytics", "platform", "chart", "mern", "visuali"],
+    response:
+      "📊 *Excel Analytics Platform*\nSubtitle: MERN Stack Data Visualization\n\n• Dynamic web app allowing users to upload Excel files and generate interactive 2D/3D charts\n• Features: File Upload, Real-time Processing, 3D Charts, Data Export\n• Tech: MongoDB, Express.js, React, Node.js\n• GitHub: github.com/agarwalganesh",
+  },
+
+  // ── Project – LearnSyncAI ─────────────────────────────────────────────────
+  {
+    keywords: ["learnsync", "terminal", "ai website", "generator", "cli", "openai", "nlp"],
+    response:
+      "🤖 *LearnSyncAI Terminal*\nSubtitle: AI-Powered Website Generator\n\n• Terminal-based AI assistant that helps users generate and deploy websites using natural language commands\n• Features: NLP Commands, Auto Deploy, AI Code Generation, Multiple Templates\n• Tech: Python, OpenAI API, CLI\n• GitHub: github.com/agarwalganesh/LearnSync-Website-maker",
+  },
+
+  // ── Experience ────────────────────────────────────────────────────────────
+  {
+    keywords: ["experience", "intern", "internship", "zidio", "pw", "physicswallah", "job", "work history", "professional"],
+    response:
+      "💼 Ganesh's Professional Experience:\n\n🌟 *Artificial Intelligence Engineer — PW (PhysicsWallah)*\n  📅 Jun 2026 – Present  |  On-site, Sector 62 Noida, UP\n  → Working on generative AI solutions, custom LLM agents, and intelligent automation workflows.\n\n💻 *Web Developer — Zidio Development*\n  📅 Apr 2025 – Jul 2025 (4 months)  |  Remote, Bengaluru\n  → Engineered scalable web application features, partnered with cross-functional teams, participated in sprint planning & code reviews in an Agile environment.",
+  },
+
+  // ── Education ─────────────────────────────────────────────────────────────
+  {
+    keywords: ["study", "education", "iit", "madras", "university", "college", "degree", "school", "academic"],
+    response:
+      "🎓 Ganesh's Academic Journey:\n\n1. 📚 *High School (PCM)* — Eternal Life Senior Secondary School, Neemkathana, Rajasthan\n   Duration: 2020 – 2022  |  Score: *89.20%*\n\n2. 🎓 *B.Sc. Mathematics* — S.N.K.P. Govt. College, Neemkathana, Rajasthan\n   Duration: 2022 – 2025  |  Score: 59%  ✅ Completed\n\n3. 🖥️ *B.S. Data Science & Applications* — Indian Institute of Technology Madras\n   Duration: 2024 – Present  ⭐ Current\n\n4. 🚀 *CS & AI Program* — PhysicsWallah Institute of Innovation (PW IOI), Bangalore\n   Duration: 2024 – Present",
+  },
+
+  // ── Achievements ──────────────────────────────────────────────────────────
+  {
+    keywords: ["achievement", "achievements", "award", "awards", "honor", "recognition", "milestone", "rajya", "puraskar", "scout", "aws", "hackathon", "power bi", "streak"],
+    response:
+      "🏆 Ganesh's Key Achievements:\n\n🥇 *Rajya Puraskar Award* (2023)\n   Honored by Governor Kalraj Mishra for leadership in Bharat Scouts & Guides\n\n💻 *100+ Days Coding Streak* (2024)\n   Consistent problem-solving in Python, Java & DSA on LeetCode & CodeChef\n\n☁️ *Top 5 — AWS Cloud Hackathon* (2024)\n   Ranked Top 5 out of 140+ teams\n\n📊 *Power BI Competition Winner* (2024)\n   Won SkillBoost EdTech Case Study — Built interactive dashboards\n\n🧠 *Prompt Engineering Certified* (2024)\n   Certification from Chegg Skills in AI prompt engineering\n\n🏢 *Software Dev Internship Completed* (2024)\n   Zidio Development Company, Bangalore",
+  },
+
+  // ── Certifications ────────────────────────────────────────────────────────
+  {
+    keywords: ["certif", "certificate", "certification", "course", "chegg", "ibm", "foundation", "credential"],
+    response:
+      "📜 Ganesh's Certifications:\n\n1. 🤖 *AI Prompt Engineering Certificate*\n   Issuer: Chegg Skills × EdifyOnline  |  May–Jul 2025\n\n2. 📄 *B.Sc. Part-III Result Certificate*\n   Issuer: PDU Shekhawati University, Sikar  |  2024–2025\n\n3. 🎓 *Foundation Level Certificate*\n   Issuer: IIT Madras (BS Programme)  |  Completed Sep 2025\n\n4. 🧠 *A Quick Introduction to Machine Learning*\n   Issuer: IBM Skills Network × Cognitive Class  |  August 2025",
+  },
+
+  // ── Contact ───────────────────────────────────────────────────────────────
+  {
+    keywords: ["contact", "hire", "email", "phone", "reach", "location", "bangalore", "linkedin", "github", "connect"],
+    response:
+      "📬 Contact Ganesh:\n\n• ✉️ *Email*: ganeshagarwal0895@gmail.com\n• 📱 *Phone*: +91 63754 76136\n• 💼 *LinkedIn*: linkedin.com/in/ganesh-agarwal-a20917308\n• 🐙 *GitHub*: github.com/agarwalganesh\n• 📍 *Location*: Bangalore, Karnataka, India",
+  },
+
+  // ── Resume ────────────────────────────────────────────────────────────────
+  {
+    keywords: ["resume", "cv", "download", "pdf"],
+    response:
+      "📄 You can download Ganesh's resume directly from the portfolio website. Click the *Download Resume* button in the Hero section or navigate to /resume.pdf",
+  },
+
+  // ── Help ──────────────────────────────────────────────────────────────────
+  {
+    keywords: ["help", "what can you", "options", "topics", "ask"],
+    response:
+      "💡 Here's what I can tell you about Ganesh:\n\n• *about* — Background & personal info\n• *skills* — Tech stack & proficiency levels\n• *projects* — All 6 featured projects\n• *experience* — Work & internship history\n• *education* — Academic journey\n• *achievements* — Awards & milestones\n• *certifications* — Verified credentials\n• *contact* — How to reach him\n\nJust ask naturally — e.g. 'Tell me about his ML projects' or 'What awards did he win?'",
   },
 ];
 
@@ -67,13 +149,19 @@ const renderMessageText = (text: string) =>
   );
 
 const getBotResponse = (input: string): string => {
-  const query = input.toLowerCase();
+  const query = input.toLowerCase().trim();
+
+  // Exact match for "help"
+  if (query === "help") {
+    return BOT_KNOWLEDGE.find((e) => e.keywords.includes("help"))!.response;
+  }
+
   for (const entry of BOT_KNOWLEDGE) {
     if (entry.keywords.some((keyword) => query.includes(keyword))) {
       return entry.response;
     }
   }
-  return "I'm not fully sure about that detail. You can ask about his projects, skills, experience, education, or contact details, or type 'help' to see suggestions!";
+  return "I'm not sure about that detail yet. Try asking about his *projects*, *skills*, *experience*, *education*, *achievements*, *certifications*, or *contact* info. Type 'help' for all topics!";
 };
 
 const AIChatbot = () => {
@@ -82,7 +170,7 @@ const AIChatbot = () => {
     {
       id: "welcome",
       sender: "bot",
-      text: "Hi! I am Ganesh's AI Assistant. How can I help you explore his portfolio today?",
+      text: "Hi! 👋 I'm Ganesh's AI Assistant — trained on his full resume & portfolio. How can I help you today?",
       timestamp: new Date(),
     },
   ]);

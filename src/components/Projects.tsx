@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Sun, BarChart3, Bot, ExternalLink, Github, ChevronRight, ShieldAlert, Brain, GraduationCap } from "lucide-react";
+import { Sun, BarChart3, Bot, ExternalLink, Github, ChevronRight, ShieldAlert, Brain, GraduationCap, Sparkles } from "lucide-react";
 import { CreditRiskDemo, MentalHealthDemo } from "./ProjectDemos";
 
 const projectsData = [
@@ -28,6 +28,18 @@ const projectsData = [
     color: "from-purple-500 to-pink-500",
     link: "https://github.com/agarwalganesh/StudentOverthinkingEDA-project",
     github: "https://github.com/agarwalganesh/StudentOverthinkingEDA-project",
+  },
+  {
+    icon: Sparkles,
+    title: "Meeting Mind",
+    subtitle: "AI Meeting Intelligence & Summarizer",
+    description:
+      "An intelligent meeting assistant platform that transcribes live audio discussions, generates structured summaries, and automatically extracts key action items with LLMs.",
+    features: ["Audio Transcription", "Action Item Extractor", "Smart Summaries", "Searchable Notes"],
+    tech: ["Next.js", "Python", "Whisper", "OpenAI / Gemini"],
+    color: "from-violet-500 to-indigo-600",
+    link: "https://github.com/agarwalganesh/MeetingMindAI",
+    github: "https://github.com/agarwalganesh/MeetingMindAI",
   },
   {
     icon: GraduationCap,

@@ -165,7 +165,7 @@ const Skills = () => {
                 </div>
                 <div>
                   <p className="text-2xl font-display font-bold text-gradient">
-                    <CountUpNumber value={6} suffix="+" />
+                    <CountUpNumber value={7} suffix="+" />
                   </p>
                   <p className="text-xs text-muted-foreground">Projects Built</p>
                 </div>

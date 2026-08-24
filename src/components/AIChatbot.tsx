@@ -42,7 +42,7 @@ const BOT_KNOWLEDGE: { keywords: string[]; response: string }[] = [
   {
     keywords: ["project", "projects", "work", "portfolio", "build", "built"],
     response:
-      "Ganesh has built 6 featured projects across ML and Web:\n\n1. 🛡️ *Credit Risk & Fraud Detection* — XGBoost + Anomaly Detection\n2. 🧠 *Student Mental Health & Overthinking* — EDA + Random Forest\n3. 🎓 *JEE Mains Rank Predictor* — PW IOI lead generation tool\n4. ☀️ *Sunstide* — Solar charging smart bag showcase website\n5. 📊 *Excel Analytics Platform* — MERN stack data visualizer\n6. 🤖 *LearnSyncAI Terminal* — AI-powered website generator (CLI)\n\nAsk me about any specific project for more details!",
+      "Ganesh has built 7 featured projects across ML and Web:\n\n1. 🛡️ *Credit Risk & Fraud Detection* — XGBoost + Anomaly Detection\n2. 🧠 *Student Mental Health & Overthinking* — EDA + Random Forest\n3. 🎙️ *Meeting Mind* — AI Meeting Intelligence & Summarizer\n4. 🎓 *JEE Mains Rank Predictor* — PW IOI lead generation tool\n5. ☀️ *Sunstide* — Solar charging smart bag showcase website\n6. 📊 *Excel Analytics Platform* — MERN stack data visualizer\n7. 🤖 *LearnSyncAI Terminal* — AI-powered website generator (CLI)\n\nAsk me about any specific project for more details!",
   },
 
   // ── Project – Credit Risk ──────────────────────────────────────────────────
@@ -57,6 +57,13 @@ const BOT_KNOWLEDGE: { keywords: string[]; response: string }[] = [
     keywords: ["mental", "health", "overthinking", "student", "eda"],
     response:
       "🧠 *Student Mental Health & Overthinking*\nSubtitle: EDA + Classification Pipeline\n\n• Dataset: 101 × 8 student behavior records\n• 8-visualization EDA pipeline revealing behavioral patterns\n• Random Forest classifier mapping overthinking levels: High → None\n• Output: Confusion Matrix & Behavior Insights\n• Tech: Python, Scikit-learn, Pandas\n• GitHub: github.com/agarwalganesh/StudentOverthinkingEDA-project",
+  },
+
+  // ── Project – Meeting Mind ────────────────────────────────────────────────
+  {
+    keywords: ["meeting", "meeting mind", "meetingmind", "summarizer", "transcription", "action item", "whisper"],
+    response:
+      "🎙️ *Meeting Mind*\nSubtitle: AI Meeting Intelligence & Summarizer\n\n• An intelligent meeting assistant platform that transcribes live audio discussions, generates structured summaries, and automatically extracts key action items with LLMs\n• Features: Audio Transcription, Action Item Extractor, Smart Summaries, Searchable Notes\n• Tech: Next.js, Python, Whisper, OpenAI / Gemini\n• GitHub: github.com/agarwalganesh/MeetingMindAI",
   },
 
   // ── Project – JEE Predictor ────────────────────────────────────────────────
@@ -133,7 +140,7 @@ const BOT_KNOWLEDGE: { keywords: string[]; response: string }[] = [
   {
     keywords: ["help", "what can you", "options", "topics", "ask"],
     response:
-      "💡 Here's what I can tell you about Ganesh:\n\n• *about* — Background & personal info\n• *skills* — Tech stack & proficiency levels\n• *projects* — All 6 featured projects\n• *experience* — Work & internship history\n• *education* — Academic journey\n• *achievements* — Awards & milestones\n• *certifications* — Verified credentials\n• *contact* — How to reach him\n\nJust ask naturally — e.g. 'Tell me about his ML projects' or 'What awards did he win?'",
+      "💡 Here's what I can tell you about Ganesh:\n\n• *about* — Background & personal info\n• *skills* — Tech stack & proficiency levels\n• *projects* — All 7 featured projects\n• *experience* — Work & internship history\n• *education* — Academic journey\n• *achievements* — Awards & milestones\n• *certifications* — Verified credentials\n• *contact* — How to reach him\n\nJust ask naturally — e.g. 'Tell me about his ML projects' or 'What awards did he win?'",
   },
 ];
 

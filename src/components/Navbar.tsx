@@ -7,12 +7,13 @@ import Logo from "@/components/Logo";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Education", href: "#education" },
-  { name: "Projects", href: "#projects" },
-  { name: "Achievements", href: "#achievements" },
   { name: "Skills", href: "#skills" },
+  { name: "Tech Stack", href: "#tech-stack" },
+  { name: "Projects", href: "#projects" },
+  { name: "AI Automation", href: "#ai-automation" },
+  { name: "Journey", href: "#learning-journey" },
   { name: "Certifications", href: "#certifications" },
+  { name: "GitHub", href: "#github-activity" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -57,7 +58,7 @@ const Navbar = ({ onToggleCli }: NavbarProps) => {
         </motion.a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-7">
           {navLinks.map((link) => (
             <motion.li key={link.name} whileHover={{ y: -2 }}>
               <a
@@ -99,6 +100,7 @@ const Navbar = ({ onToggleCli }: NavbarProps) => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden text-foreground p-2"
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -114,13 +116,13 @@ const Navbar = ({ onToggleCli }: NavbarProps) => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden glass mt-2 mx-4 rounded-lg overflow-hidden"
           >
-            <ul className="py-4">
+            <ul className="py-2 max-h-[70vh] overflow-y-auto">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     onClick={handleLinkClick}
-                    className="block px-6 py-3 text-muted-foreground hover:text-primary hover:bg-secondary/50 transition-colors"
+                    className="block px-6 py-3 text-muted-foreground hover:text-primary hover:bg-secondary/50 transition-colors text-sm"
                   >
                     {link.name}
                   </a>

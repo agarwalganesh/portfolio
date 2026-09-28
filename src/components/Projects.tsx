@@ -1,45 +1,72 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Sun, BarChart3, Bot, ExternalLink, Github, ChevronRight, ShieldAlert, Brain, GraduationCap, Sparkles } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  ChevronRight,
+  ShieldAlert,
+  Brain,
+  GraduationCap,
+  Sparkles,
+  Sun,
+  BarChart3,
+  Bot,
+} from "lucide-react";
 import { CreditRiskDemo, MentalHealthDemo } from "./ProjectDemos";
 
 const projectsData = [
   {
-    icon: ShieldAlert,
-    title: "Credit Risk & Fraud Detection",
-    subtitle: "ML Risk Scoring & Anomaly Detection",
+    icon: Sparkles,
+    title: "Meeting Mind",
+    subtitle: "AI Meeting Intelligence & Summarizer",
     description:
-      "Risk evaluation system on a 1,000 x 9 financial dataset segmenting applicants into risk categories, with Isolation Forest & LOF flagging ~20% anomalous transactions.",
-    features: ["AUC-ROC 0.85", "78–81% Accuracy", "12+ Features", "5-Fold CV"],
-    tech: ["Python", "XGBoost", "Random Forest"],
-    color: "from-red-500 to-rose-500",
-    link: "https://github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
-    github: "https://github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
+      "An intelligent meeting assistant platform that transcribes live audio, generates structured summaries, and extracts key action items using LLMs.",
+    features: ["Audio Transcription", "Action Item Extractor", "Smart Summaries", "Searchable Notes"],
+    tech: ["Next.js", "Python", "Whisper", "LLM APIs"],
+    category: "AI · Full-Stack",
+    color: "from-violet-500 to-indigo-600",
+    link: "https://github.com/agarwalganesh/MeetingMindAI",
+    github: "https://github.com/agarwalganesh/MeetingMindAI",
   },
   {
     icon: Brain,
     title: "Student Mental Health & Overthinking",
     subtitle: "EDA + Classification Pipeline",
     description:
-      "Analyzed a 101 x 8 student dataset with an 8-visualization EDA pipeline and built a Random Forest classifier categorizing overthinking levels from High to None.",
+      "Analyzed a 101 × 8 student dataset with an 8-visualization EDA pipeline and built a Random Forest classifier categorizing overthinking levels from High to None.",
     features: ["EDA Pipeline", "Random Forest", "Confusion Matrix", "Behavior Insights"],
     tech: ["Python", "Scikit-learn", "Pandas"],
+    category: "ML",
     color: "from-purple-500 to-pink-500",
     link: "https://github.com/agarwalganesh/StudentOverthinkingEDA-project",
     github: "https://github.com/agarwalganesh/StudentOverthinkingEDA-project",
   },
   {
-    icon: Sparkles,
-    title: "Meeting Mind",
-    subtitle: "AI Meeting Intelligence & Summarizer",
+    icon: ShieldAlert,
+    title: "Credit Risk & Fraud Detection",
+    subtitle: "ML Risk Scoring & Anomaly Detection",
     description:
-      "An intelligent meeting assistant platform that transcribes live audio discussions, generates structured summaries, and automatically extracts key action items with LLMs.",
-    features: ["Audio Transcription", "Action Item Extractor", "Smart Summaries", "Searchable Notes"],
-    tech: ["Next.js", "Python", "Whisper", "OpenAI / Gemini"],
-    color: "from-violet-500 to-indigo-600",
-    link: "https://github.com/agarwalganesh/MeetingMindAI",
-    github: "https://github.com/agarwalganesh/MeetingMindAI",
+      "Risk evaluation system on a 1,000 × 9 financial dataset segmenting applicants into risk categories, with Isolation Forest & LOF flagging ~20% anomalous transactions.",
+    features: ["AUC-ROC 0.85", "78–81% Accuracy", "12+ Features", "5-Fold CV"],
+    tech: ["Python", "XGBoost", "Random Forest"],
+    category: "ML",
+    color: "from-red-500 to-rose-500",
+    link: "https://github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
+    github: "https://github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
+  },
+  {
+    icon: Bot,
+    title: "LearnSyncAI Terminal",
+    subtitle: "AI-Powered Website Generator (CLI)",
+    description:
+      "Terminal-based AI assistant that helps users generate and deploy websites using natural language commands and LLM-generated code.",
+    features: ["NLP Commands", "Auto Deploy", "AI Code Gen", "Multiple Templates"],
+    tech: ["Python", "LLM API", "CLI"],
+    category: "AI · Automation",
+    color: "from-blue-500 to-cyan-500",
+    link: "https://github.com/agarwalganesh/LearnSync-Website-maker",
+    github: "https://github.com/agarwalganesh/LearnSync-Website-maker",
   },
   {
     icon: GraduationCap,
@@ -49,6 +76,7 @@ const projectsData = [
       "High-accuracy predictive tool estimating student ranks from JEE Mains performance, generating data-driven admission leads for the PW IOI Innovation Hub.",
     features: ["Real-time Predictions", "High Availability", "Lead Generation", "Live Demo"],
     tech: ["Node.js", "Supabase", "Vercel"],
+    category: "Full-Stack",
     color: "from-indigo-500 to-blue-500",
     link: "https://www.jeemains-rank-predicator-pwioi.live/",
     github: "https://github.com/agarwalganesh",
@@ -56,11 +84,12 @@ const projectsData = [
   {
     icon: Sun,
     title: "Sunstide",
-    subtitle: "Solar Charging Smart Bag Website",
+    subtitle: "Solar Charging Smart Bag Showcase",
     description:
       "A comprehensive website for showcasing an innovative solar-charging bag that generates energy through sunlight and motion.",
     features: ["Responsive Design", "Interactive Demos", "Mobile-First", "Modern UI/UX"],
     tech: ["React", "Tailwind CSS", "Framer Motion"],
+    category: "Web",
     color: "from-yellow-500 to-orange-500",
     link: "#",
     github: "https://github.com/agarwalganesh",
@@ -73,21 +102,10 @@ const projectsData = [
       "Dynamic web app allowing users to upload Excel files and generate interactive 2D/3D charts for data analysis.",
     features: ["File Upload", "Real-time Processing", "3D Charts", "Data Export"],
     tech: ["MongoDB", "Express.js", "React", "Node.js"],
+    category: "Full-Stack",
     color: "from-green-500 to-emerald-500",
     link: "#",
     github: "https://github.com/agarwalganesh",
-  },
-  {
-    icon: Bot,
-    title: "LearnSyncAI Terminal",
-    subtitle: "AI-Powered Website Generator",
-    description:
-      "Terminal-based assistant that helps users generate and deploy websites using natural language commands.",
-    features: ["NLP Commands", "Auto Deploy", "AI Code Gen", "Multiple Templates"],
-    tech: ["Python", "OpenAI API", "CLI"],
-    color: "from-blue-500 to-cyan-500",
-    link: "https://github.com/agarwalganesh/LearnSync-Website-maker",
-    github: "https://github.com/agarwalganesh/LearnSync-Website-maker",
   },
 ];
 
@@ -107,7 +125,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
@@ -115,28 +133,28 @@ const Projects = () => {
             transition={{ duration: 0.5 }}
             className="inline-block px-4 py-1 rounded-full glass text-sm text-primary mb-4"
           >
-            My Work
+            Featured Work
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work and passion projects
+            AI applications, ML pipelines and full-stack products I've built end-to-end.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
           {projectsData.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.12 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <motion.div
-                className="glass rounded-2xl overflow-hidden h-full group cursor-pointer relative"
+                className="glass rounded-2xl overflow-hidden h-full group cursor-pointer relative flex flex-col"
                 whileHover={{ y: -10 }}
                 transition={{ duration: 0.3 }}
               >
@@ -144,44 +162,59 @@ const Projects = () => {
                 <motion.div
                   className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
                   style={{
-                    background: `linear-gradient(135deg, ${project.color.includes('yellow') ? 'hsl(45, 100%, 50%)' : project.color.includes('green') ? 'hsl(150, 100%, 40%)' : 'hsl(200, 100%, 50%)'}, transparent)`,
-                    padding: '2px',
-                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                    WebkitMaskComposite: 'xor',
-                    maskComposite: 'exclude',
+                    background: `linear-gradient(135deg, hsl(200, 100%, 50%), transparent)`,
+                    padding: "2px",
+                    WebkitMask:
+                      "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                    WebkitMaskComposite: "xor",
+                    maskComposite: "exclude",
                   }}
                 />
 
                 {/* Project Header */}
-                <div className={`h-32 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
+                <div
+                  className={`h-32 bg-gradient-to-br ${project.color} relative overflow-hidden shrink-0`}
+                >
                   <div className="absolute inset-0 bg-black/20" />
-                  
+
                   {/* Animated background pattern */}
                   <motion.div
                     className="absolute inset-0 opacity-30"
                     style={{
-                      backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-                      backgroundSize: '20px 20px',
+                      backgroundImage:
+                        "radial-gradient(circle, white 1px, transparent 1px)",
+                      backgroundSize: "20px 20px",
                     }}
-                    animate={{ 
-                      backgroundPosition: hoveredIndex === index ? ['0% 0%', '100% 100%'] : '0% 0%' 
+                    animate={{
+                      backgroundPosition:
+                        hoveredIndex === index
+                          ? ["0% 0%", "100% 100%"]
+                          : "0% 0%",
                     }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   />
-                  
+
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
-                    animate={hoveredIndex === index ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
+                    animate={
+                      hoveredIndex === index
+                        ? { scale: 1.1, rotate: 5 }
+                        : { scale: 1, rotate: 0 }
+                    }
                     transition={{ duration: 0.3 }}
                   >
-                    <project.icon className="w-16 h-16 text-white/80" />
+                    <project.icon className="w-16 h-16 text-white/85" />
                   </motion.div>
 
                   {/* Hover Actions */}
                   <motion.div
                     className="absolute top-4 right-4 flex gap-2"
                     initial={{ opacity: 0, y: -10 }}
-                    animate={hoveredIndex === index ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+                    animate={
+                      hoveredIndex === index
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: -10 }
+                    }
                     transition={{ duration: 0.2 }}
                   >
                     {project.link && project.link !== "#" && (
@@ -196,79 +229,93 @@ const Projects = () => {
                         <ExternalLink size={16} />
                       </motion.a>
                     )}
-                    {project.github && !project.github.match(/^https:\/\/github\.com\/[^/]+$/) && (
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Github size={16} />
-                      </motion.a>
-                    )}
+                    {project.github &&
+                      !project.github.match(/^https:\/\/github\.com\/[^/]+$/) && (
+                        <motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/30"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <Github size={16} />
+                        </motion.a>
+                      )}
                   </motion.div>
+
+                  {/* Category badge */}
+                  <span className="absolute top-3 left-3 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-black/40 text-white backdrop-blur">
+                    {project.category}
+                  </span>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-display font-bold mb-1 group-hover:text-primary transition-colors">
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="text-lg font-display font-bold mb-1 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-primary mb-3">{project.subtitle}</p>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                  <p className="text-xs text-primary mb-2">{project.subtitle}</p>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
                   {/* Features */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.features.map((feature, i) => (
-                      <motion.span
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.features.slice(0, 4).map((feature) => (
+                      <span
                         key={feature}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ delay: 0.5 + index * 0.1 + i * 0.05 }}
-                        className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
+                        className="text-[11px] px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground"
                       >
                         {feature}
-                      </motion.span>
-                    ))}
-                  </div>
-
-                  {/* Tech Stack */}
-                  <div className="flex items-center gap-2 pt-4 border-t border-border">
-                    <span className="text-xs text-muted-foreground">Tech:</span>
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-2 py-0.5 rounded bg-primary/20 text-primary"
-                      >
-                        {tech}
                       </span>
                     ))}
                   </div>
 
+                  {/* Tech Stack */}
+                  <div className="flex items-center gap-2 pt-3 mt-auto border-t border-border">
+                    <span className="text-xs text-muted-foreground">Tech:</span>
+                    <div className="flex flex-wrap gap-1">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-[11px] px-1.5 py-0.5 rounded bg-primary/20 text-primary"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Try Live Demo Selector */}
-                  {(project.title.includes("Credit Risk") || project.title.includes("Mental Health")) && (
-                    <div className="mt-4 pt-3 border-t border-border">
+                  {(project.title.includes("Credit Risk") ||
+                    project.title.includes("Mental Health")) && (
+                    <div className="mt-3 pt-3 border-t border-border">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          setActiveDemoIndex(activeDemoIndex === index ? null : index);
+                          setActiveDemoIndex(
+                            activeDemoIndex === index ? null : index,
+                          );
                         }}
                         className="text-xs font-semibold text-primary flex items-center gap-1.5 bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-full transition-all"
                       >
-                        {activeDemoIndex === index ? "Close Live Demo" : "Try Live Demo"}
+                        {activeDemoIndex === index
+                          ? "Close Live Demo"
+                          : "Try Live Demo"}
                       </button>
-                      
+
                       {activeDemoIndex === index && (
-                        <motion.div 
+                        <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           className="mt-3 overflow-hidden text-left"
                         >
-                          {project.title.includes("Credit Risk") ? <CreditRiskDemo /> : <MentalHealthDemo />}
+                          {project.title.includes("Credit Risk") ? (
+                            <CreditRiskDemo />
+                          ) : (
+                            <MentalHealthDemo />
+                          )}
                         </motion.div>
                       )}
                     </div>
@@ -280,10 +327,10 @@ const Projects = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 mt-4 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity w-fit"
+                      className="flex items-center gap-1 mt-3 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity w-fit"
                       animate={hoveredIndex === index ? { x: 5 } : { x: 0 }}
                     >
-                      View Project <ChevronRight size={16} />
+                      View Project <ChevronRight size={14} />
                     </motion.a>
                   )}
                 </div>

@@ -47,7 +47,7 @@ const Experience = () => {
             Work <span className="text-gradient">Experience</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            My professional journey and internship experiences in AI and Web Development.
+            Professional journey building AI agents, automation workflows and web products.
           </p>
         </motion.div>
 

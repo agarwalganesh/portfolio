@@ -1,13 +1,22 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Trophy, Code, Cloud, BarChart, Brain, Briefcase, Star } from "lucide-react";
+import {
+  Trophy,
+  Code,
+  Cloud,
+  Brain,
+  Briefcase,
+  Star,
+  Sparkles,
+} from "lucide-react";
 
 const achievementsData = [
   {
     icon: Trophy,
     title: "Rajya Puraskar Award",
-    description: "Honored by Governor Kalraj Mishra for leadership in Bharat Scouts and Guides",
+    description:
+      "Honored by Governor Kalraj Mishra for leadership in Bharat Scouts and Guides.",
     year: "2023",
     color: "bg-yellow-500/20 text-yellow-400",
     glowColor: "hsl(45, 100%, 50%)",
@@ -15,42 +24,47 @@ const achievementsData = [
   {
     icon: Code,
     title: "100+ Days Coding Streak",
-    description: "Consistent problem-solving in Python, Java & DSA on LeetCode & CodeChef",
+    description:
+      "Consistent problem-solving in Python, Java and DSA on LeetCode & CodeChef.",
     year: "2024",
     color: "bg-green-500/20 text-green-400",
     glowColor: "hsl(120, 100%, 40%)",
   },
   {
     icon: Cloud,
-    title: "Top 5 - AWS Hackathon",
-    description: "Ranked Top 5 out of 140+ teams in AWS Cloud Hackathon",
+    title: "Top 5 — AWS Cloud Hackathon",
+    description: "Ranked Top 5 out of 140+ teams in the AWS Cloud Hackathon.",
     year: "2024",
     color: "bg-orange-500/20 text-orange-400",
     glowColor: "hsl(30, 100%, 50%)",
   },
   {
-    icon: BarChart,
-    title: "Power BI Competition",
-    description: "Winner of SkillBoost EdTech Case Study - Built interactive dashboards",
-    year: "2024",
-    color: "bg-blue-500/20 text-blue-400",
-    glowColor: "hsl(210, 100%, 50%)",
-  },
-  {
-    icon: Brain,
+    icon: Sparkles,
     title: "Prompt Engineering Certified",
-    description: "Completed certification from Chegg Skills in AI prompt engineering",
-    year: "2024",
+    description:
+      "Completed AI Prompt Engineering certification from Chegg Skills × EdifyOnline.",
+    year: "2025",
     color: "bg-purple-500/20 text-purple-400",
     glowColor: "hsl(280, 100%, 60%)",
   },
   {
     icon: Briefcase,
-    title: "Software Dev Intern",
-    description: "Completed internship at Zidio Development Company, Bangalore",
-    year: "2024",
+    title: "AI Engineer Intern — PW",
+    description:
+      "Currently working as AI Engineer Intern at PhysicsWallah on GenAI agents & automation.",
+    year: "2025",
     color: "bg-cyan-500/20 text-cyan-400",
     glowColor: "hsl(180, 100%, 50%)",
+    highlight: true,
+  },
+  {
+    icon: Brain,
+    title: "IBM Machine Learning",
+    description:
+      "Completed 'A Quick Introduction to Machine Learning' from IBM Skills Network × Cognitive Class.",
+    year: "2025",
+    color: "bg-indigo-500/20 text-indigo-400",
+    glowColor: "hsl(230, 100%, 60%)",
   },
 ];
 
@@ -66,7 +80,7 @@ const Achievements = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -79,33 +93,38 @@ const Achievements = () => {
             <Star className="w-5 h-5 text-yellow-400" />
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            My <span className="text-gradient">Achievements</span>
+            <span className="text-gradient">Achievements</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Milestones and recognitions along my journey
+            Recognition and milestones from coding, hackathons and learning.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {achievementsData.map((achievement, index) => (
             <motion.div
               key={achievement.title}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <motion.div
-                className="glass rounded-xl p-6 h-full relative overflow-hidden group cursor-pointer"
-                whileHover={{ y: -8, scale: 1.02 }}
+                className={`glass rounded-xl p-5 h-full relative overflow-hidden group cursor-pointer ${
+                  achievement.highlight ? "border border-primary/30" : ""
+                }`}
+                whileHover={{ y: -6, scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{
-                  boxShadow: hoveredIndex === index ? `0 20px 40px -15px ${achievement.glowColor}40` : 'none'
+                  boxShadow:
+                    hoveredIndex === index
+                      ? `0 20px 40px -15px ${achievement.glowColor}40`
+                      : "none",
                 }}
               >
                 {/* Background Glow on Hover */}
-                <motion.div 
+                <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
@@ -119,17 +138,17 @@ const Achievements = () => {
                       <motion.div
                         key={i}
                         className="absolute w-1 h-1 rounded-full bg-primary/50"
-                        initial={{ 
-                          x: Math.random() * 100, 
+                        initial={{
+                          x: Math.random() * 100,
                           y: 100,
-                          opacity: 0 
+                          opacity: 0,
                         }}
-                        animate={{ 
-                          y: -20, 
+                        animate={{
+                          y: -20,
                           opacity: [0, 1, 0],
                         }}
-                        transition={{ 
-                          duration: 1.5, 
+                        transition={{
+                          duration: 1.5,
                           delay: i * 0.2,
                           repeat: Infinity,
                         }}
@@ -140,23 +159,20 @@ const Achievements = () => {
                 )}
 
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <motion.div 
-                      className={`w-12 h-12 rounded-lg ${achievement.color} flex items-center justify-center`}
+                  <div className="flex items-start justify-between mb-3">
+                    <motion.div
+                      className={`w-11 h-11 rounded-lg ${achievement.color} flex items-center justify-center`}
                       whileHover={{ rotate: 10, scale: 1.1 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <achievement.icon className="w-6 h-6" />
+                      <achievement.icon className="w-5 h-5" />
                     </motion.div>
-                    <motion.span 
-                      className="text-xs font-medium text-muted-foreground px-2 py-1 rounded-full bg-secondary"
-                      whileHover={{ scale: 1.05 }}
-                    >
+                    <span className="text-xs font-medium text-muted-foreground px-2 py-1 rounded-full bg-secondary">
                       {achievement.year}
-                    </motion.span>
+                    </span>
                   </div>
 
-                  <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-base font-display font-semibold mb-1.5 group-hover:text-primary transition-colors">
                     {achievement.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">

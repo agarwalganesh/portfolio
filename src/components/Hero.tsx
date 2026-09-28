@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowDown, Sparkles, Download } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, Sparkles, Download, Cpu } from "lucide-react";
 import ganeshProfile from "@/assets/ganesh-profile.jpg";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/agarwalganesh", label: "GitHub" },
@@ -10,10 +10,10 @@ const socialLinks = [
 ];
 
 const roles = [
-  "GenAI & LLM Engineer",
-  "AI Automation Developer",
-  "Machine Learning Engineer",
-  "Data Science Student",
+  "AI Engineer",
+  "GenAI Developer",
+  "AI Automation Engineer",
+  "LLM & RAG Specialist",
 ];
 
 const Hero = () => {
@@ -22,7 +22,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 3000);
+    }, 2800);
     return () => clearInterval(interval);
   }, []);
 
@@ -47,14 +47,14 @@ const Hero = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
             >
               <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-sm text-muted-foreground">Available for opportunities</span>
+              <span className="text-sm text-muted-foreground">Available for AI Engineering roles</span>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-muted-foreground text-lg mb-4"
+              className="text-muted-foreground text-lg mb-3"
             >
               Hi Everyone, I'm
             </motion.p>
@@ -63,16 +63,16 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-5xl md:text-7xl font-display font-bold mb-4"
+              className="text-5xl md:text-7xl font-display font-bold mb-4 leading-tight"
             >
-              <motion.span 
+              <motion.span
                 className="text-gradient text-shadow-glow inline-block"
-                animate={{ 
+                animate={{
                   textShadow: [
                     "0 0 20px hsl(175 80% 50% / 0.5)",
                     "0 0 40px hsl(175 80% 50% / 0.8)",
                     "0 0 20px hsl(175 80% 50% / 0.5)",
-                  ]
+                  ],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -85,12 +85,12 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mb-4 h-10"
+              className="mb-5 h-9 md:h-10"
             >
               <span className="text-xl md:text-2xl text-muted-foreground">
                 I'm a{" "}
               </span>
-              <motion.span 
+              <motion.span
                 key={roleIndex}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -105,9 +105,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55 }}
-              className="text-sm md:text-base font-semibold text-primary/90 tracking-wide mb-6 uppercase"
+              className="text-sm md:text-base font-semibold text-primary/90 tracking-wide mb-5 uppercase"
             >
-              GenAI & LLM Engineer | AI Automation Developer | Building AI Agents, RAG Systems & Intelligent Workflows
+              AI Engineer · GenAI · AI Automation · Building AI Agents, RAG Systems & Intelligent Workflows
             </motion.p>
 
             <motion.p
@@ -116,9 +116,7 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
               className="text-muted-foreground leading-relaxed mb-8 max-w-lg"
             >
-              Passionate learner from IIT Madras BS in Data Science & PW IOI.
-              Building end-to-end tech solutions that combine data intelligence
-              with software development.
+              I build practical AI applications using LLMs, RAG, LangChain, LangGraph and automation tools — combined with strong Python, backend and full-stack development.
             </motion.p>
 
             {/* Social Links */}
@@ -134,16 +132,14 @@ const Hero = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 group"
+                  className="w-12 h-12 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 group relative"
                   whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 + index * 0.1 }}
                 >
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-primary/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity"
-                  />
+                  <motion.div className="absolute inset-0 rounded-full bg-primary/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
                   <social.icon size={20} className="relative z-10" />
                 </motion.a>
               ))}
@@ -157,8 +153,8 @@ const Hero = () => {
               className="flex flex-wrap gap-4"
             >
               <motion.a
-                href="#contact"
-                className="group relative px-8 py-3 bg-gradient-primary text-primary-foreground font-semibold rounded-lg overflow-hidden"
+                href="#projects"
+                className="group relative px-7 py-3 bg-gradient-primary text-primary-foreground font-semibold rounded-lg overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -168,23 +164,38 @@ const Hero = () => {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.5 }}
                 />
-                <span className="relative z-10">Hire Me</span>
+                <span className="relative z-10 inline-flex items-center gap-2">
+                  <Cpu size={16} /> View Projects
+                </span>
+              </motion.a>
+              <motion.a
+                href="#github-activity"
+                className="flex items-center gap-2 px-7 py-3 glass text-foreground font-semibold rounded-lg hover:bg-secondary transition-colors relative overflow-hidden group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Github size={16} className="relative z-10" />
+                <span className="relative z-10">GitHub</span>
+              </motion.a>
+              <motion.a
+                href="#contact"
+                className="flex items-center gap-2 px-7 py-3 border border-primary/40 text-primary font-semibold rounded-lg hover:bg-primary/10 transition-colors relative overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Mail size={16} />
+                <span>Contact Me</span>
               </motion.a>
               <motion.a
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-8 py-3 glass text-foreground font-semibold rounded-lg hover:bg-secondary transition-colors relative overflow-hidden group"
+                className="flex items-center gap-2 px-7 py-3 glass text-foreground font-semibold rounded-lg hover:bg-secondary transition-colors relative overflow-hidden group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <motion.div
-                  className="absolute inset-0 border-2 border-primary/50 rounded-lg"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
                 <Download size={16} className="relative z-10" />
-                <span className="relative z-10">Download CV</span>
+                <span className="relative z-10">Resume</span>
               </motion.a>
             </motion.div>
           </motion.div>
@@ -201,12 +212,13 @@ const Hero = () => {
               <motion.div
                 className="absolute inset-0 w-72 h-72 md:w-96 md:h-96 rounded-full"
                 style={{
-                  background: "conic-gradient(from 0deg, hsl(175 80% 50%), hsl(280 70% 60%), hsl(175 80% 50%))",
+                  background:
+                    "conic-gradient(from 0deg, hsl(175 80% 50%), hsl(280 70% 60%), hsl(175 80% 50%))",
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               />
-              
+
               {/* Inner glow ring */}
               <motion.div
                 className="absolute inset-1 w-[280px] h-[280px] md:w-[376px] md:h-[376px] rounded-full bg-background"
@@ -215,26 +227,24 @@ const Hero = () => {
                     "0 0 30px hsl(175 80% 50% / 0.3) inset",
                     "0 0 60px hsl(175 80% 50% / 0.5) inset",
                     "0 0 30px hsl(175 80% 50% / 0.3) inset",
-                  ]
+                  ],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              
+
               {/* Profile image container */}
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full p-2">
-                <motion.div 
+                <motion.div
                   className="absolute inset-4 rounded-full overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
                   <img
                     src={ganeshProfile}
-                    alt="Ganesh Agarwal"
+                    alt="Ganesh Agarwal — AI Engineer"
                     className="w-full h-full object-cover"
                   />
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity"
-                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity" />
                 </motion.div>
               </div>
 
@@ -244,7 +254,7 @@ const Hero = () => {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <span className="text-sm font-semibold text-gradient">IIT Madras</span>
+                <span className="text-sm font-semibold text-gradient">LangChain</span>
               </motion.div>
 
               <motion.div
@@ -252,7 +262,7 @@ const Hero = () => {
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                <span className="text-sm font-semibold text-gradient-accent">92% JEE</span>
+                <span className="text-sm font-semibold text-gradient-accent">RAG · AI Agents</span>
               </motion.div>
             </div>
           </motion.div>
@@ -271,10 +281,7 @@ const Hero = () => {
             whileHover={{ y: -5 }}
           >
             <span className="text-sm mb-2 group-hover:text-primary transition-colors">Scroll Down</span>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
+            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
               <ArrowDown size={20} />
             </motion.div>
           </motion.a>

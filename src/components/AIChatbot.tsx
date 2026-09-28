@@ -10,9 +10,9 @@ interface Message {
 }
 
 const SUGGESTIONS = [
-  "Tell me about your ML projects",
-  "What are your achievements?",
-  "What is your tech stack?",
+  "What AI projects have you built?",
+  "Tell me about your AI automation work",
+  "What's in your tech stack?",
   "How can I contact you?",
 ];
 
@@ -21,35 +21,42 @@ const BOT_KNOWLEDGE: { keywords: string[]; response: string }[] = [
   {
     keywords: ["hello", "hi", "hey", "greetings", "yo", "sup", "howdy"],
     response:
-      "Hello! 👋 I'm Ganesh's AI Assistant. Ask me anything about his projects, skills, experience, education, achievements, or certifications!",
+      "Hello! 👋 I'm Ganesh's AI Assistant. Ask me anything about his AI engineering work, projects, skills, experience, or how to get in touch!",
   },
 
   // ── About / Personal ───────────────────────────────────────────────────────
   {
     keywords: ["about", "who", "ganesh", "yourself", "background", "profile", "bio"],
     response:
-      "Ganesh Agarwal is a GenAI & LLM Engineer, Machine Learning Engineer, and AI Automation Developer.\n\n• 📍 Location: Bangalore, Karnataka, India\n• 🎂 Born: September 8, 2005 — from Neemkathana, Rajasthan\n• 🎯 Goal: ML Engineer & AI Analyst\n• 🏫 Student at IIT Madras (BS Data Science) & PW IOI\n• 📈 JEE Percentile: 92%\n\nHe journeyed from a small town in Rajasthan to top-tier tech institutes through dedication and continuous learning.",
+      "Ganesh Agarwal is an AI Engineer focused on GenAI, AI Automation and full-stack AI development.\n\n• 📍 Location: Bangalore, Karnataka, India\n• 🎯 Focus: AI Engineering · GenAI · AI Automation\n• 🏫 Student at IIT Madras (BS Data Science) & PW IOI\n• 🛠️ Building: AI agents, RAG systems, LLM apps, automation workflows\n\nHe ships end-to-end AI products — from prompt engineering and retrieval pipelines to FastAPI backends and full-stack interfaces.",
   },
 
   // ── Skills ─────────────────────────────────────────────────────────────────
   {
     keywords: ["skill", "skills", "tech", "languages", "stack", "code", "python", "react", "tools", "tooling"],
     response:
-      "Ganesh's tech stack spans AI/ML and Modern Web:\n\n🔧 *Core Skills*\n• Python — Pandas, NumPy, Scikit-learn (90%)\n• Machine Learning — XGBoost, Random Forest (85%)\n• EDA & Feature Engineering (88%)\n• Anomaly Detection — IsoForest, LOF (80%)\n• SQL / MySQL (85%)\n• C++ / C (75%)\n• Git / GitHub (85%)\n• Node.js & Supabase (75%)\n\n🌱 *Currently Learning*\n• Deep Learning 🤖  |  MLOps ⚙️\n• AWS Cloud ☁️  |  DSA 🧮\n• Power BI 📊  |  Prompt Engineering 🧠\n\n🌐 *Web*: React, TypeScript, Tailwind CSS, Framer Motion\n🗄️ *Databases*: MongoDB, Supabase, MySQL",
+      "Ganesh's stack is built around AI engineering and modern full-stack development:\n\n🤖 *AI / GenAI*\n• LangChain · LangGraph · RAG · AI Agents\n• Tool Calling · Prompt Engineering\n• Embeddings · Vector Databases · ChromaDB\n\n⚡ *AI Automation*\n• n8n · Workflow Automation · API Integrations\n• Webhooks · Event-driven automation\n\n🧠 *Machine Learning*\n• Scikit-learn · XGBoost · Random Forest\n• Feature Engineering · Anomaly Detection\n\n📊 *Data*\n• Python · Pandas · NumPy · SQL · MySQL\n\n🛠️ *Backend*\n• FastAPI · REST APIs · PostgreSQL · Supabase · Node.js\n\n☁️ *DevOps / Cloud*\n• Docker · AWS · MLOps · Git · GitHub",
   },
 
   // ── Projects – overview ────────────────────────────────────────────────────
   {
     keywords: ["project", "projects", "work", "portfolio", "build", "built"],
     response:
-      "Ganesh has built 7 featured projects across ML and Web:\n\n1. 🛡️ *Credit Risk & Fraud Detection* — XGBoost + Anomaly Detection\n2. 🧠 *Student Mental Health & Overthinking* — EDA + Random Forest\n3. 🎙️ *Meeting Mind* — AI Meeting Intelligence & Summarizer\n4. 🎓 *JEE Mains Rank Predictor* — PW IOI lead generation tool\n5. ☀️ *Sunstide* — Solar charging smart bag showcase website\n6. 📊 *Excel Analytics Platform* — MERN stack data visualizer\n7. 🤖 *LearnSyncAI Terminal* — AI-powered website generator (CLI)\n\nAsk me about any specific project for more details!",
+      "Ganesh has built 7 featured projects spanning AI, ML and full-stack:\n\n1. 🎙️ *Meeting Mind* — AI meeting intelligence & summarizer (LLM + Whisper)\n2. 🧠 *Student Mental Health & Overthinking* — EDA + Random Forest\n3. 🛡️ *Credit Risk & Fraud Detection* — XGBoost + Anomaly Detection\n4. 🤖 *LearnSyncAI Terminal* — AI website generator via CLI\n5. 🎓 *JEE Mains Rank Predictor* — PW IOI lead-gen tool (Node.js + Supabase)\n6. ☀️ *Sunstide* — Solar charging smart bag showcase\n7. 📊 *Excel Analytics Platform* — MERN stack visualizer\n\nAsk me about any specific project for more details!",
+  },
+
+  // ── Project – Meeting Mind ─────────────────────────────────────────────────
+  {
+    keywords: ["meeting", "meeting mind", "meetingmind", "summarizer", "transcription", "action item", "whisper"],
+    response:
+      "🎙️ *Meeting Mind*\nSubtitle: AI Meeting Intelligence & Summarizer\n\n• An intelligent meeting assistant that transcribes live audio, generates structured summaries, and extracts action items using LLMs\n• Features: Audio Transcription, Action Item Extractor, Smart Summaries, Searchable Notes\n• Tech: Next.js, Python, Whisper, OpenAI / Gemini\n• GitHub: github.com/agarwalganesh/MeetingMindAI",
   },
 
   // ── Project – Credit Risk ──────────────────────────────────────────────────
   {
     keywords: ["credit", "risk", "fraud", "finance", "loan", "xgboost", "anomaly"],
     response:
-      "🛡️ *Credit Risk & Fraud Detection*\nSubtitle: ML Risk Scoring & Anomaly Detection\n\n• Dataset: 1,000 × 9 financial records\n• Algorithms: XGBoost, Random Forest, Isolation Forest, Local Outlier Factor (LOF)\n• Flagged ~20% anomalous transactions\n• *AUC-ROC: 0.85*  |  *Accuracy: 78–81%*\n• 12+ engineered features, 5-fold cross-validation\n• Tech: Python, XGBoost, Scikit-learn\n• GitHub: github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
+      "🛡️ *Credit Risk & Fraud Detection*\nSubtitle: ML Risk Scoring & Anomaly Detection\n\n• Dataset: 1,000 × 9 financial records\n• Algorithms: XGBoost, Random Forest, Isolation Forest, LOF\n• Flagged ~20% anomalous transactions\n• *AUC-ROC: 0.85*  |  *Accuracy: 78–81%*\n• 12+ engineered features, 5-fold CV\n• Tech: Python, XGBoost, Scikit-learn\n• GitHub: github.com/agarwalganesh/Loan-risk-analysis--PROJECT",
   },
 
   // ── Project – Mental Health ────────────────────────────────────────────────
@@ -59,67 +66,67 @@ const BOT_KNOWLEDGE: { keywords: string[]; response: string }[] = [
       "🧠 *Student Mental Health & Overthinking*\nSubtitle: EDA + Classification Pipeline\n\n• Dataset: 101 × 8 student behavior records\n• 8-visualization EDA pipeline revealing behavioral patterns\n• Random Forest classifier mapping overthinking levels: High → None\n• Output: Confusion Matrix & Behavior Insights\n• Tech: Python, Scikit-learn, Pandas\n• GitHub: github.com/agarwalganesh/StudentOverthinkingEDA-project",
   },
 
-  // ── Project – Meeting Mind ────────────────────────────────────────────────
-  {
-    keywords: ["meeting", "meeting mind", "meetingmind", "summarizer", "transcription", "action item", "whisper"],
-    response:
-      "🎙️ *Meeting Mind*\nSubtitle: AI Meeting Intelligence & Summarizer\n\n• An intelligent meeting assistant platform that transcribes live audio discussions, generates structured summaries, and automatically extracts key action items with LLMs\n• Features: Audio Transcription, Action Item Extractor, Smart Summaries, Searchable Notes\n• Tech: Next.js, Python, Whisper, OpenAI / Gemini\n• GitHub: github.com/agarwalganesh/MeetingMindAI",
-  },
-
   // ── Project – JEE Predictor ────────────────────────────────────────────────
   {
     keywords: ["jee", "rank", "predictor", "pw", "ioi", "physicswallah"],
     response:
-      "🎓 *JEE Mains Rank Predictor*\nSubtitle: PW IOI Lead Generation Tool\n\n• High-accuracy predictive tool estimating student JEE ranks from performance inputs\n• Generates data-driven admission leads for PW IOI Innovation Hub\n• Features: Real-time predictions, High availability, Live demo\n• Tech: Node.js, Supabase, Vercel\n• Live: jeemains-rank-predicator-pwioi.live\n• GitHub: github.com/agarwalganesh",
-  },
-
-  // ── Project – Sunstide ────────────────────────────────────────────────────
-  {
-    keywords: ["sunstide", "solar", "bag", "sun"],
-    response:
-      "☀️ *Sunstide*\nSubtitle: Solar Charging Smart Bag Website\n\n• Showcase website for an innovative solar-charging bag that generates energy through sunlight and motion\n• Features: Responsive design, Interactive demos, Mobile-first, Modern UI/UX\n• Tech: React, Tailwind CSS, Framer Motion\n• GitHub: github.com/agarwalganesh",
-  },
-
-  // ── Project – Excel Analytics ─────────────────────────────────────────────
-  {
-    keywords: ["excel", "analytics", "platform", "chart", "mern", "visuali"],
-    response:
-      "📊 *Excel Analytics Platform*\nSubtitle: MERN Stack Data Visualization\n\n• Dynamic web app allowing users to upload Excel files and generate interactive 2D/3D charts\n• Features: File Upload, Real-time Processing, 3D Charts, Data Export\n• Tech: MongoDB, Express.js, React, Node.js\n• GitHub: github.com/agarwalganesh",
+      "🎓 *JEE Mains Rank Predictor*\nSubtitle: PW IOI Lead Generation Tool\n\n• Predictive tool estimating JEE ranks from student inputs\n• Generates data-driven admission leads for PW IOI Innovation Hub\n• Features: Real-time predictions, High availability, Live demo\n• Tech: Node.js, Supabase, Vercel\n• Live: jeemains-rank-predicator-pwioi.live",
   },
 
   // ── Project – LearnSyncAI ─────────────────────────────────────────────────
   {
     keywords: ["learnsync", "terminal", "ai website", "generator", "cli", "openai", "nlp"],
     response:
-      "🤖 *LearnSyncAI Terminal*\nSubtitle: AI-Powered Website Generator\n\n• Terminal-based AI assistant that helps users generate and deploy websites using natural language commands\n• Features: NLP Commands, Auto Deploy, AI Code Generation, Multiple Templates\n• Tech: Python, OpenAI API, CLI\n• GitHub: github.com/agarwalganesh/LearnSync-Website-maker",
+      "🤖 *LearnSyncAI Terminal*\nSubtitle: AI-Powered Website Generator (CLI)\n\n• Terminal-based AI assistant that generates and deploys websites via natural language\n• Features: NLP Commands, Auto Deploy, AI Code Gen, Multiple Templates\n• Tech: Python, LLM API, CLI\n• GitHub: github.com/agarwalganesh/LearnSync-Website-maker",
+  },
+
+  // ── AI Automation ─────────────────────────────────────────────────────────
+  {
+    keywords: ["automation", "automate", "workflow", "n8n", "webhook", "trigger"],
+    response:
+      "⚡ *AI Automation*\nGanesh designs and ships event-driven AI workflows:\n\nTrigger → Data/API → AI Processing → Decision/Agent → Action → Notification\n\nTools: n8n · LangChain · LangGraph · LLMs · Webhooks · APIs · Telegram / WhatsApp\n\nTypical patterns: lead enrichment, AI-driven email classification, social → knowledge-base pipelines, document Q&A with notifications.",
+  },
+
+  // ── RAG / AI Agents ───────────────────────────────────────────────────────
+  {
+    keywords: ["rag", "retrieval", "agent", "agents", "vector", "embedding", "chroma", "langchain", "langgraph", "llm", "prompt"],
+    response:
+      "🧠 *RAG & AI Agents*\n\nGanesh builds practical LLM applications:\n• *RAG*: document ingestion → chunking → embeddings → ChromaDB → retrieval → LLM response\n• *AI Agents*: LangGraph graphs with tool calling, state and conditional edges\n• *Prompt Engineering*: structured outputs, system prompts, few-shot patterns\n• *Embeddings*: chunking strategies, vector store selection, semantic retrieval",
   },
 
   // ── Experience ────────────────────────────────────────────────────────────
   {
     keywords: ["experience", "intern", "internship", "zidio", "pw", "physicswallah", "job", "work history", "professional"],
     response:
-      "💼 Ganesh's Professional Experience:\n\n🌟 *Artificial Intelligence Engineer — PW (PhysicsWallah)*\n  📅 Jun 2026 – Present  |  On-site, Sector 62 Noida, UP\n  → Working on generative AI solutions, custom LLM agents, and intelligent automation workflows.\n\n💻 *Web Developer — Zidio Development*\n  📅 Apr 2025 – Jul 2025 (4 months)  |  Remote, Bengaluru\n  → Engineered scalable web application features, partnered with cross-functional teams, participated in sprint planning & code reviews in an Agile environment.",
+      "💼 Ganesh's Professional Experience:\n\n🌟 *AI Engineer Intern — PW (PhysicsWallah)*\n  📅 Jun 2025 – Present  |  On-site / Hybrid\n  → Building GenAI solutions, custom LLM agents and AI automation workflows.\n\n💻 *Web Developer — Zidio Development*\n  📅 Apr 2025 – Jul 2025 (4 months)  |  Remote, Bengaluru\n  → Engineered scalable web application features, partnered with cross-functional teams in Agile sprints.",
   },
 
-  // ── Education ─────────────────────────────────────────────────────────────
+  // ── Education / Journey ────────────────────────────────────────────────────
   {
-    keywords: ["study", "education", "iit", "madras", "university", "college", "degree", "school", "academic"],
+    keywords: ["study", "education", "iit", "madras", "university", "college", "degree", "school", "academic", "journey", "learning"],
     response:
-      "🎓 Ganesh's Academic Journey:\n\n1. 📚 *High School (PCM)* — Eternal Life Senior Secondary School, Neemkathana, Rajasthan\n   Duration: 2020 – 2022  |  Score: *89.20%*\n\n2. 🎓 *B.Sc. Mathematics* — S.N.K.P. Govt. College, Neemkathana, Rajasthan\n   Duration: 2022 – 2025  |  Score: 59%  ✅ Completed\n\n3. 🖥️ *B.S. Data Science & Applications* — Indian Institute of Technology Madras\n   Duration: 2024 – Present  ⭐ Current\n\n4. 🚀 *CS & AI Program* — PhysicsWallah Institute of Innovation (PW IOI), Bangalore\n   Duration: 2024 – Present",
+      "🎓 Ganesh's Journey & Education:\n\n*Progression:* Data Analytics → Machine Learning → Generative AI → LangChain → LangGraph → AI Agents → AI Automation → Full-Stack AI.\n\n*Academics:*\n• B.S. Data Science & Applications — IIT Madras (2024 – Present)\n• CS & AI Program — PhysicsWallah Institute of Innovation (PW IOI)\n• B.Sc. Mathematics — PDU Shekhawati University (completed)\n• High School PCM — Eternal Life Senior Secondary School",
   },
 
   // ── Achievements ──────────────────────────────────────────────────────────
   {
-    keywords: ["achievement", "achievements", "award", "awards", "honor", "recognition", "milestone", "rajya", "puraskar", "scout", "aws", "hackathon", "power bi", "streak"],
+    keywords: ["achievement", "achievements", "award", "awards", "honor", "recognition", "milestone", "rajya", "puraskar", "scout", "aws", "hackathon", "streak"],
     response:
-      "🏆 Ganesh's Key Achievements:\n\n🥇 *Rajya Puraskar Award* (2023)\n   Honored by Governor Kalraj Mishra for leadership in Bharat Scouts & Guides\n\n💻 *100+ Days Coding Streak* (2024)\n   Consistent problem-solving in Python, Java & DSA on LeetCode & CodeChef\n\n☁️ *Top 5 — AWS Cloud Hackathon* (2024)\n   Ranked Top 5 out of 140+ teams\n\n📊 *Power BI Competition Winner* (2024)\n   Won SkillBoost EdTech Case Study — Built interactive dashboards\n\n🧠 *Prompt Engineering Certified* (2024)\n   Certification from Chegg Skills in AI prompt engineering\n\n🏢 *Software Dev Internship Completed* (2024)\n   Zidio Development Company, Bangalore",
+      "🏆 Key Achievements:\n\n🥇 *Rajya Puraskar Award* (2023) — Governor Kalraj Mishra, Bharat Scouts & Guides\n💻 *100+ Days Coding Streak* (2024) — Python, Java, DSA on LeetCode & CodeChef\n☁️ *Top 5 — AWS Cloud Hackathon* (2024) — Top 5 of 140+ teams\n🤖 *Prompt Engineering Certified* (2025) — Chegg Skills × EdifyOnline\n🧠 *IBM Machine Learning* (2025) — IBM Skills Network × Cognitive Class\n🏢 *AI Engineer Intern — PW* (2025) — Currently working on GenAI agents",
   },
 
   // ── Certifications ────────────────────────────────────────────────────────
   {
     keywords: ["certif", "certificate", "certification", "course", "chegg", "ibm", "foundation", "credential"],
     response:
-      "📜 Ganesh's Certifications:\n\n1. 🤖 *AI Prompt Engineering Certificate*\n   Issuer: Chegg Skills × EdifyOnline  |  May–Jul 2025\n\n2. 📄 *B.Sc. Part-III Result Certificate*\n   Issuer: PDU Shekhawati University, Sikar  |  2024–2025\n\n3. 🎓 *Foundation Level Certificate*\n   Issuer: IIT Madras (BS Programme)  |  Completed Sep 2025\n\n4. 🧠 *A Quick Introduction to Machine Learning*\n   Issuer: IBM Skills Network × Cognitive Class  |  August 2025",
+      "📜 Certifications:\n\n1. 🤖 *AI Prompt Engineering Certificate*\n   Issuer: Chegg Skills × EdifyOnline  |  May–Jul 2025\n\n2. 🎓 *Foundation Level Certificate*\n   Issuer: IIT Madras (BS Programme)  |  Completed Sep 2025\n\n3. 🧠 *A Quick Introduction to Machine Learning*\n   Issuer: IBM Skills Network × Cognitive Class  |  August 2025",
+  },
+
+  // ── GitHub ────────────────────────────────────────────────────────────────
+  {
+    keywords: ["github", "git", "repo", "repos", "commit", "contribution", "code"],
+    response:
+      "🐙 GitHub: github.com/agarwalganesh\nLive repos, stars and contribution history are embedded directly on this portfolio. Check the *GitHub* section on this page for the live contribution graph and stats.",
   },
 
   // ── Contact ───────────────────────────────────────────────────────────────
@@ -133,14 +140,14 @@ const BOT_KNOWLEDGE: { keywords: string[]; response: string }[] = [
   {
     keywords: ["resume", "cv", "download", "pdf"],
     response:
-      "📄 You can download Ganesh's resume directly from the portfolio website. Click the *Download Resume* button in the Hero section or navigate to /resume.pdf",
+      "📄 You can download Ganesh's resume directly from the portfolio. Use the *Resume* button in the Hero section, or open /resume.pdf",
   },
 
   // ── Help ──────────────────────────────────────────────────────────────────
   {
     keywords: ["help", "what can you", "options", "topics", "ask"],
     response:
-      "💡 Here's what I can tell you about Ganesh:\n\n• *about* — Background & personal info\n• *skills* — Tech stack & proficiency levels\n• *projects* — All 7 featured projects\n• *experience* — Work & internship history\n• *education* — Academic journey\n• *achievements* — Awards & milestones\n• *certifications* — Verified credentials\n• *contact* — How to reach him\n\nJust ask naturally — e.g. 'Tell me about his ML projects' or 'What awards did he win?'",
+      "💡 Here's what I can tell you about Ganesh:\n\n• *about* — Background & focus\n• *skills / stack* — AI, ML, backend, devops\n• *projects* — All 7 featured projects\n• *rag / agents* — RAG & AI agent work\n• *automation* — AI automation workflows\n• *experience* — Internships & work\n• *journey* — Learning progression\n• *achievements* — Awards & milestones\n• *certifications* — Verified credentials\n• *github* — Code & contributions\n• *contact* — How to reach him\n\nJust ask naturally — e.g. 'Tell me about his AI projects' or 'How does he automate workflows?'",
   },
 ];
 
@@ -152,7 +159,7 @@ const renderMessageText = (text: string) =>
       </strong>
     ) : (
       part
-    )
+    ),
   );
 
 const getBotResponse = (input: string): string => {
@@ -168,7 +175,7 @@ const getBotResponse = (input: string): string => {
       return entry.response;
     }
   }
-  return "I'm not sure about that detail yet. Try asking about his *projects*, *skills*, *experience*, *education*, *achievements*, *certifications*, or *contact* info. Type 'help' for all topics!";
+  return "I'm not sure about that detail yet. Try asking about his *projects*, *skills*, *rag*, *agents*, *automation*, *experience*, *journey*, *achievements*, *certifications*, or *contact*. Type 'help' for all topics!";
 };
 
 const AIChatbot = () => {
@@ -177,7 +184,7 @@ const AIChatbot = () => {
     {
       id: "welcome",
       sender: "bot",
-      text: "Hi! 👋 I'm Ganesh's AI Assistant — trained on his full resume & portfolio. How can I help you today?",
+      text: "Hi! 👋 I'm Ganesh's AI Assistant — trained on his full portfolio. Ask me about his AI engineering, RAG, agents, automation or projects.",
       timestamp: new Date(),
     },
   ]);
@@ -208,8 +215,7 @@ const AIChatbot = () => {
     setInputVal("");
     setIsTyping(true);
 
-    // Simulate thinking/typing delay
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    await new Promise((resolve) => setTimeout(resolve, 700));
 
     const botResponseText = getBotResponse(text);
     const botMsg: Message = {
@@ -234,6 +240,7 @@ const AIChatbot = () => {
             onClick={() => setIsOpen(true)}
             className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:bg-primary/90 transition-all duration-300 relative group"
             style={{ boxShadow: "0 0 15px hsl(var(--primary) / 0.5)" }}
+            aria-label="Open AI chatbot"
           >
             <MessageSquare className="w-6 h-6" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background animate-pulse" />
@@ -263,6 +270,7 @@ const AIChatbot = () => {
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                aria-label="Close chatbot"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -273,14 +281,22 @@ const AIChatbot = () => {
               {messages.map((msg) => (
                 <div
                   key={msg.id}
-                  className={`flex gap-2.5 ${msg.sender === "user" ? "flex-row-reverse" : "flex-row"}`}
+                  className={`flex gap-2.5 ${
+                    msg.sender === "user" ? "flex-row-reverse" : "flex-row"
+                  }`}
                 >
                   <div
                     className={`w-6 h-6 rounded-full flex items-center justify-center text-xs shrink-0 ${
-                      msg.sender === "user" ? "bg-accent/20 text-accent" : "bg-primary/20 text-primary"
+                      msg.sender === "user"
+                        ? "bg-accent/20 text-accent"
+                        : "bg-primary/20 text-primary"
                     }`}
                   >
-                    {msg.sender === "user" ? <User className="w-3.5 h-3.5" /> : <Bot className="w-3.5 h-3.5" />}
+                    {msg.sender === "user" ? (
+                      <User className="w-3.5 h-3.5" />
+                    ) : (
+                      <Bot className="w-3.5 h-3.5" />
+                    )}
                   </div>
                   <div
                     className={`p-3 rounded-2xl max-w-[75%] text-sm whitespace-pre-line leading-relaxed ${
@@ -300,9 +316,18 @@ const AIChatbot = () => {
                     <Bot className="w-3.5 h-3.5 animate-bounce" />
                   </div>
                   <div className="p-3 bg-muted text-muted-foreground rounded-2xl rounded-tl-none border border-primary/5 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <span className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <span className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                    <span
+                      className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce"
+                      style={{ animationDelay: "0ms" }}
+                    />
+                    <span
+                      className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce"
+                      style={{ animationDelay: "150ms" }}
+                    />
+                    <span
+                      className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce"
+                      style={{ animationDelay: "300ms" }}
+                    />
                   </div>
                 </div>
               )}
@@ -343,6 +368,7 @@ const AIChatbot = () => {
                 type="submit"
                 disabled={!inputVal.trim()}
                 className="w-9 h-9 bg-primary text-primary-foreground rounded-xl flex items-center justify-center hover:opacity-95 active:scale-95 disabled:opacity-50 disabled:scale-100 transition-all"
+                aria-label="Send message"
               >
                 <Send className="w-4 h-4" />
               </button>

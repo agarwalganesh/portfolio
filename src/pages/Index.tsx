@@ -3,11 +3,13 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
-import Projects from "@/components/Projects";
-import Achievements from "@/components/Achievements";
 import Skills from "@/components/Skills";
+import TechStack from "@/components/TechStack";
+import Projects from "@/components/Projects";
+import AIAutomation from "@/components/AIAutomation";
+import Experience from "@/components/Experience";
+import LearningJourney from "@/components/LearningJourney";
+import Achievements from "@/components/Achievements";
 import Certifications from "@/components/Certifications";
 import GitHubActivity from "@/components/GitHubActivity";
 import Contact from "@/components/Contact";
@@ -34,14 +36,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
       <ParticleBackground />
-      
+
       {/* Grid overlay for depth */}
-      <div 
+      <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.02]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
+          backgroundSize: "50px 50px",
         }}
       />
 
@@ -54,11 +56,13 @@ const Index = () => {
         <Navbar onToggleCli={() => setIsCliOpen((prev) => !prev)} />
         <Hero />
         <About />
-        <Experience />
-        <Education />
-        <Projects />
-        <Achievements />
         <Skills />
+        <TechStack />
+        <Projects />
+        <AIAutomation />
+        <Experience />
+        <LearningJourney />
+        <Achievements />
         <Certifications />
         <GitHubActivity />
         <Contact />
